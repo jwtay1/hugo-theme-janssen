@@ -1,4 +1,4 @@
-@import "vendors/_normalize.css";
+@import "vendors/normalize";
 
 $breakpoint-sm: 576px;
 $breakpoint-md: 768px;
@@ -18,3 +18,65 @@ body {
     font-family: $font-family-sans;
 }
 
+//Navigation
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 250px;
+    position: fixed;
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    display: block;
+
+    @media only screen and (max-width: $breakpoint-sm) {
+        padding-top: 15px;
+        display: none;
+    }
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 20px;
+    margin-left: 50px;
+    display: none;
+
+    @media only screen and (max-width: $breakpoint-sm) {
+        display: block;
+    }
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {}
+    .sidenav a {font-size: 18px;}
+}
+
+#menuToggler {
+    display: none;
+
+    @media only screen and (max-width: $breakpoint-sm) {
+        display: block;
+    }
+}
