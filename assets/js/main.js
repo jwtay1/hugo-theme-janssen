@@ -21,8 +21,11 @@ function handleClicks(ev) {
 function openNav() {
     menu = document.getElementById('navmenu');
 
+    if (menu.classList.contains('hide')) {
+        menu.classList.remove('hide');
+    }
+
     if (!menu.classList.contains('show')) {
-        console.log("Adding show");
         menu.classList.add('show');
     }
     
@@ -41,6 +44,10 @@ function closeNav() {
 
         if (menu.classList.contains('show')) {
             menu.classList.remove('show');
+            menu.classList.add('hide');
+            menu.addEventListener("animationend", function () {
+                menu.classList.remove('hide');
+            })
         }
 
         html.removeEventListener("click", handleClicks, true);
@@ -52,19 +59,31 @@ menuToggler.onclick = openNav;
 //Theme toggler
 
 const toggle = document.getElementById("theme-toggle");
+const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+
+if (currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+
+    if (currentTheme === 'light') {
+        toggle.checked = true;
+    }
+}
 
 var storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
 if (storedTheme)
     document.documentElement.setAttribute('data-theme', storedTheme)
 
-toggle.onclick = function() {
-    var currentTheme = document.documentElement.getAttribute("data-theme");
-    var targetTheme = "light";
+function switchTheme(e) {
 
-    if (currentTheme === "light") {
-        targetTheme = "dark";
+    if (e.target.checked) {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+    }
+    else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
     }
 
-    document.documentElement.setAttribute('data-theme', targetTheme)
-    localStorage.setItem('theme', targetTheme);
-};
+}
+
+toggle.addEventListener('change', switchTheme, false);

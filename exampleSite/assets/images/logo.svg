@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   height="20"
+   viewBox="0 -960 640 800"
+   width="16"
+   fill="#e3e3e3"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="owl_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="33.458333"
+     inkscape:cx="8.0099626"
+     inkscape:cy="9.9975093"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="461"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <path
+     d="M 320,-160 Q 186,-160 93,-253 0,-346 0,-480 v -200 q 0,-122 96,-201 96,-79 224,-79 128,0 224,79 96,79 96,201 v 520 z m 0,-80 h 80 Q 381,-265 370.5,-295.5 360,-326 360,-360 v -42 q -10,1 -20,1.5 -10,0.5 -20,0.5 -67,0 -129.5,-23.5 Q 128,-447 80,-495 v 15 q 0,100 70,170 70,70 170,70 z m 120,-120 q 0,50 35,85 35,35 85,35 v -255 q -26,26 -56,44.5 -30,18.5 -64,30.5 z M 280,-640 q 0,-66 -45,-111 -45,-45 -109,-48 -22,24 -34,54 -12,30 -12,65 0,89 72.5,144.5 72.5,55.5 167.5,55.5 95,0 167.5,-55.5 Q 560,-591 560,-680 q 0,-35 -12,-65.5 -12,-30.5 -34,-54.5 -64,2 -109,48 -45,46 -45,112 z m -100,0 q -17,0 -28.5,-11.5 Q 140,-663 140,-680 q 0,-17 11.5,-28.5 11.5,-11.5 28.5,-11.5 17,0 28.5,11.5 11.5,11.5 11.5,28.5 0,17 -11.5,28.5 Q 197,-640 180,-640 Z m 280,0 q -17,0 -28.5,-11.5 Q 420,-663 420,-680 q 0,-17 11.5,-28.5 11.5,-11.5 28.5,-11.5 17,0 28.5,11.5 11.5,11.5 11.5,28.5 0,17 -11.5,28.5 Q 477,-640 460,-640 Z M 210,-858 q 34,14 62,37 28,23 48,52 20,-29 47.5,-52 27.5,-23 61.5,-37 -25,-11 -52.5,-16.5 -27.5,-5.5 -56.5,-5.5 -29,0 -56.5,5.5 Q 236,-869 210,-858 Z m 430,618 H 360 Z m -320,0 q -100,0 -170,-70 -70,-70 -70,-170 0,100 70,170 70,70 170,70 h 80 z m 120,-120 q 0,50 35,85 35,35 85,35 -50,0 -85,-35 -35,-35 -35,-85 z M 320,-769 Z"
+     id="path1"
+     style="fill:#37c8ab" />
+</svg>

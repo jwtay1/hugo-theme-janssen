@@ -13,11 +13,14 @@ $font-family-serif: "IBM Plex Serif", 'Bookman Old Style', 'URW Bookman', 'URW B
 
 //Color schemes
 :root {
-
     --text-color: #000;
     --background-color: #fff;
     --link-color: #543fd7;
-
+    --switch-height: 20px;
+    --switch-padding: 8px;
+    --switch-width: calc((var(--switch-height) * 2) - var(--switch-padding));
+    --slider-height: calc(var(--switch-height) - var(--switch-padding));
+    --slider-on: calc(var(--switch-height) - var(--switch-padding));
 }
 
 html[data-theme='light'] {
@@ -44,17 +47,15 @@ html[data-theme='dark'] {
 body {
     font-family: $font-family-sans;
     font-size: 18px;
-
-    --duration: 0.3s;
-    --timing: ease;
-  
     color: var(--text-color);
     background-color: var(--background-color);
   
-    transition: color var(--duration) var(--timing), background-color var(
-          --duration
-        ) var(--timing);
+    //Add animation when switching colors
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
 
+body svg {
+    fill: var(--text-color);
 }
 
 a {
@@ -77,33 +78,28 @@ main {
     }
 }
 
-
 //Navigation
 .topnav {
-    border: 1px solid white;
     display: flex;
     height: 60px;
     margin-bottom: 30px;
 }
 
 .topnav .sidebar-toggler {
-    border: 1px solid white;
     padding: 10px;   
     vertical-align: middle; 
 }
 
 .topnav .site-title-bar {
-    border: 1px solid white;
     vertical-align: middle;
-    text-align: center;
+    text-align: left;
     width: auto;
     flex-grow: 1;
     padding: 10px;
 }
 
 .topnav .theme-toggler {
-    border: 1px solid white;
-    padding: 10px;
+    padding: 25px 16px;
     vertical-align: middle;
 }
 
@@ -111,10 +107,15 @@ main {
     vertical-align: middle;
     font-family: $font-family-serif;
     font-weight: 800;
+    font-size: 30px;
+}
+
+.site-title a {
+    text-decoration: none;
+    color: var(--text-color);
 }
 
 .site-icon {
-    border: 1px solid white;
     vertical-align: middle;
 }
 #menuToggler {
@@ -126,7 +127,6 @@ main {
     }
 }
 
-
 .sidenav {
     height: 100%;
     width: 250px;
@@ -135,19 +135,18 @@ main {
     top: 0;
     left: 0;
     overflow-x: hidden;
-    transition: 0.5s;
     display: none;
     padding-top: 15px;
     background-color: var(--background-color);
     border-right: 1px solid #818181;
-    animation-name: slidein;
-    animation-duration: 0.5s;
-
+    
     @media only screen and (min-width: $breakpoint-sm) {
         display: block;
         padding-top: 10px;
         position: static;
         border: 0;
+        animation-name: none;
+        background-color: inherit;
     }
 }
 
@@ -156,8 +155,21 @@ main {
     to {left: 0px;}
 }
 
+@keyframes slideout {
+    from {left: 0px;}
+    to {left: -250px;}
+}
+
+.sidenav.hide {
+    display: block !important;
+    animation-name: slideout !important;
+    animation-duration: 0.5s;
+}
+
 .sidenav.show {
     display: block !important; //Reveals the sidebar
+    animation-name: slidein !important;
+    animation-duration: 0.5s;
 }
 
 .sidenav a {
@@ -165,8 +177,7 @@ main {
     text-decoration: none;
     color: #818181;
     display: block;
-    transition: 0.3s;
-    
+    transition: 0.3s;  
 
     @media only screen and (max-width: $breakpoint-sm) {
         font-size: 18px;
@@ -194,6 +205,66 @@ main {
         display: block;
     }
 }
+
+//Dark/Light theme slider
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: var(--switch-width);
+    height: var(--switch-height);
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    content: "";
+    position: absolute;
+    height: var(--slider-height);
+    width: var(--slider-height);
+    left: calc(var(--switch-padding) / 2);
+    bottom: calc(var(--switch-padding) / 2);
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #2196F3;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+    transform: translateX(var(--slider-on));
+}
+
+.slider.round {
+    border-radius: var(--slider-height);
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
 
 //Layout
 .container {
