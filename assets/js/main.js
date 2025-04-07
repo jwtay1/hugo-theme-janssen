@@ -57,7 +57,6 @@ var storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-
 if (storedTheme)
     document.documentElement.setAttribute('data-theme', storedTheme)
 
-
 toggle.onclick = function() {
     var currentTheme = document.documentElement.getAttribute("data-theme");
     var targetTheme = "light";
