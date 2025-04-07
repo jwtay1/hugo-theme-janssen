@@ -1,5 +1,6 @@
 @import "vendors/normalize";
 
+//Variables
 $breakpoint-sm: 576px;
 $breakpoint-md: 768px;
 $breakpoint-lg: 992px;
@@ -7,6 +8,32 @@ $breakpoint-xl: 1200px;
 
 $font-family-sans: Inter, Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
 
+//https://dev.to/ananyaneogi/create-a-dark-light-mode-switch-with-css-variables-34l8
+//https://web.dev/articles/prefers-color-scheme
+
+//Color schemes
+:root {
+
+    --text-color: #000;
+    --background-color: #fff;
+    --link-color: #543fd7;
+
+}
+
+html[data-theme='light'] {
+    --background-color: #fff;
+    --text-color: #121416d8;
+    --link-color: #543fd7;
+}
+
+html[data-theme='dark'] {
+    --background-color: #212a2e;
+    --text-color: #F7F8F8;
+    --link-color: #828fff;
+}
+
+
+//Base styles
 * {
     margin: 0;
     padding: 0;
@@ -16,29 +43,58 @@ $font-family-sans: Inter, Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sa
 
 body {
     font-family: $font-family-sans;
+
+    --duration: 0.3s;
+    --timing: ease;
+  
+    color: var(--text-color);
+    background-color: var(--background-color);
+  
+    transition: color var(--duration) var(--timing), background-color var(
+          --duration
+        ) var(--timing);
+}
+
+a {
+    color: var(--link-color);
+}
+
+main {
+    //Display the sidebar
+    display: grid;
+    grid-template-columns: auto 1fr;
+
+    @media only screen and (max-width: $breakpoint-sm) {
+        //Expand the main content to full width
+        grid-template-columns: 1fr;
+    }
 }
 
 //Navigation
 .sidenav {
-    height: 100%; /* 100% Full-height */
+    height: 100%;
     width: 250px;
     position: fixed;
-    z-index: 1; /* Stay on top */
+    z-index: 1;
     top: 0;
     left: 0;
-    background-color: #111; /* Black*/
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-    display: block;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    display: none;
+    padding-top: 15px;
 
-    @media only screen and (max-width: $breakpoint-sm) {
-        padding-top: 15px;
-        display: none;
+    @media only screen and (min-width: $breakpoint-sm) {
+        display: block;
+        padding-top: 60px;
+        position: static;
     }
 }
 
-/* The navigation menu links */
+.sidenav.show {
+    display: block !important; //Reveals the sidebar
+}
+
 .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
@@ -46,14 +102,16 @@ body {
     color: #818181;
     display: block;
     transition: 0.3s;
+
+    @media only screen and (max-width: $breakpoint-sm) {
+        font-size: 18px;
+    }
 }
 
-/* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
     color: #f1f1f1;
 }
 
-/* Position and style the close button (top right corner) */
 .sidenav .closebtn {
     position: absolute;
     top: 0;
@@ -67,16 +125,16 @@ body {
     }
 }
 
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-    .sidenav {}
-    .sidenav a {font-size: 18px;}
-}
-
 #menuToggler {
+    //Style for hamburger button
     display: none;
 
     @media only screen and (max-width: $breakpoint-sm) {
         display: block;
     }
+}
+
+//Layout
+.container {
+    width: 100%;
 }

@@ -11,14 +11,13 @@ Renders a menu for the given menu ID.
 {{- $menuID := .menuID }}
 
 {{- with index site.Menus $menuID }}
-  <nav class="navbar">
+  <nav class="navbar" aria-label="primary-nav">
     <div id="navmenu" class="sidenav">
       <ul>
         {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
       </ul>
-      <a href="#" class="closebtn">X</a>
+      <a href="#" class="closebtn"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M256-227.69 227.69-256l224-224-224-224L256-732.31l224 224 224-224L732.31-704l-224 224 224 224L704-227.69l-224-224-224 224Z"/></svg></a>
     </div>
-    <a href="#" id="menuToggler">Open</a>
   </nav>
 {{- end }}
 
