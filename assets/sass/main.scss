@@ -7,7 +7,10 @@ $breakpoint-lg: 992px;
 $breakpoint-xl: 1200px;
 
 $font-family-sans: Inter, Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
-$font-family-serif: "IBM Plex Serif", 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif; 
+$font-family-serif: "Source Serif 4", 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif; 
+$font-family-mono: "Roboto Mono", Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+
+
 //https://dev.to/ananyaneogi/create-a-dark-light-mode-switch-with-css-variables-34l8
 //https://web.dev/articles/prefers-color-scheme
 
@@ -16,11 +19,13 @@ $font-family-serif: "IBM Plex Serif", 'Bookman Old Style', 'URW Bookman', 'URW B
     --text-color: #000;
     --background-color: #fff;
     --link-color: #543fd7;
+    --base-font-size: 16px;
+
     --switch-height: 20px;
     --switch-padding: 8px;
     --switch-width: calc((var(--switch-height) * 2) - var(--switch-padding));
     --slider-height: calc(var(--switch-height) - var(--switch-padding));
-    --slider-on: calc(var(--switch-height) - var(--switch-padding));
+    --slider-on: calc(var(--switch-height) - var(--switch-padding));    
 }
 
 html[data-theme='light'] {
@@ -46,7 +51,7 @@ html[data-theme='dark'] {
 
 body {
     font-family: $font-family-sans;
-    font-size: 18px;
+    font-size: var(--base-font-size);
     color: var(--text-color);
     background-color: var(--background-color);
   
@@ -78,6 +83,36 @@ main {
     }
 }
 
+#content h1 {
+    font-size: calc(var(--base-font-size) * 1.8);
+    margin: 1rem 0;
+}
+
+#content h2 {
+    font-size: calc(var(--base-font-size) * 1.6);
+    margin: 0.9rem 0;
+}
+
+#content h3 {
+    font-size: calc(var(--base-font-size) * 1.4);
+    margin: 0.8rem 0;
+}
+
+#content h4 {
+    font-size: calc(var(--base-font-size) * 1.2);
+    margin: 0.7rem 0;
+}
+
+#content h5 {
+    font-size: calc(var(--base-font-size) * 1.1);
+    margin: 0.6rem 0;
+}
+
+#content h6 {
+    font-size: calc(var(--base-font-size) * 1);
+    margin: 0.5rem 0;
+}
+
 //Navigation
 .topnav {
     display: flex;
@@ -107,7 +142,7 @@ main {
     vertical-align: middle;
     font-family: $font-family-serif;
     font-weight: 800;
-    font-size: 30px;
+    font-size: calc(var(--base-font-size) * 1.8);
 }
 
 .site-title a {
@@ -228,7 +263,7 @@ main {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: #6e6e6e;
     -webkit-transition: .4s;
     transition: .4s;
 }
@@ -269,4 +304,23 @@ input:checked+.slider:before {
 //Layout
 .container {
     width: 100%;
+}
+
+// Code
+.code-block-title {
+    background-color: #0a7eaf;
+    padding: 5px 5px;
+    font-family: $font-family-mono;
+    font-size: calc(var(--base-font-size) * 0.8);
+}
+
+.code-block {
+    background-color: var(--background-color);
+    margin: 1px solid white;
+    padding: 10px 5px;
+}
+
+.code-block pre code {
+    font-family: $font-family-mono;
+    font-size: calc(var(--base-font-size) * 0.8);
 }

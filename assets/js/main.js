@@ -87,3 +87,4 @@ function switchTheme(e) {
 }
 
 toggle.addEventListener('change', switchTheme, false);
+

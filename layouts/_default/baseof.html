@@ -9,7 +9,7 @@
   </header>
   <main>
     {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
-    <div class="container">
+    <div class="container" id="content">
     {{ block "main" . }}{{ end }}
     </div>
   </main>
