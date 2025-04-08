@@ -1,11 +1,10 @@
-<div class="code-block-container" style="border: 1px solid white;">
+<div class="code-block-container">
     {{ with .Attributes.title }}
     <div class="code-block-title">
         <span>{{ . | markdownify }}</span>
-        <span class="copy-icon"></span>
     </div>
     {{ end }}
-    <div class="code-block" style="border: 1px solid green;">
+    <div class="code-block">
         <pre><code class="chroma">
             {{- with transform.HighlightCodeBlock . "noClasses=false" -}}
             {{ .Inner }}

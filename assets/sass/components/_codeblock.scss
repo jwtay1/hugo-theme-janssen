@@ -1,3 +1,47 @@
+// Code blocks
+.code-block-container {
+    background-color: var(--chroma-bg);
+}
+
+.code-block-title {
+    background-color: #0a7eaf;
+    padding: 10px 10px;
+    font-family: $font-family-mono;
+    font-size: calc(var(--base-font-size) * 0.9);
+    font-weight: 600;
+    color: white;
+}
+
+.code-block {
+    padding: 20px 10px;
+    overflow: auto;
+}
+
+.code-block pre code {
+    font-family: $font-family-mono;
+    font-size: calc(var(--base-font-size) * 0.9);
+}
+
+code {
+    display: block;
+    width: 100%;
+}
+
+.copy-button {
+    top: 0rem;
+    right: 0.5rem;
+    margin: 0;
+    min-height: 28px;
+    padding: 4px 8px;
+    background-color: #fff;
+    color: rgb(60, 66, 87);
+    border: 1px solid rgb(60, 66, 87);
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+//Chroma syntax highlighter classes
+
 /* Background */ .bg { color:var(--chroma-color);background-color:var(--chroma-bg); }
 /* PreWrapper */ .chroma { color:var(--chroma-color);background-color:var(--chroma-bg); }
 /* Other */ .chroma .x {  }

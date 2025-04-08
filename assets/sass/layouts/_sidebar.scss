@@ -1,0 +1,87 @@
+#menuToggler {
+    //Style for hamburger button
+    display: none;
+
+    @media only screen and (max-width: $breakpoint-sm) {
+        display: block;
+    }
+}
+
+.sidenav {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    display: none;
+    padding-top: 15px;
+    background-color: var(--background-color);
+    border-right: 1px solid #818181;
+    
+    @media only screen and (min-width: $breakpoint-sm) {
+        display: block;
+        padding-top: 10px;
+        position: static;
+        border: 0;
+        animation-name: none;
+        background-color: inherit;
+    }
+}
+
+@keyframes slidein {
+    from {left: -250px;}
+    to {left: 0px;}
+}
+
+@keyframes slideout {
+    from {left: 0px;}
+    to {left: -250px;}
+}
+
+.sidenav.hide {
+    display: block !important;
+    animation-name: slideout !important;
+    animation-duration: 0.5s;
+}
+
+.sidenav.show {
+    display: block !important; //Reveals the sidebar
+    animation-name: slidein !important;
+    animation-duration: 0.5s;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    color: #818181;
+    display: block;
+    transition: 0.3s;  
+
+    @media only screen and (max-width: $breakpoint-sm) {
+        font-size: 18px;
+    }
+}
+
+.sidenav a.active {
+    color: var(--text-color);
+    
+}
+
+.sidenav a:hover {
+    color: var(--text-color);
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    font-size: 20px;
+    margin-left: 50px;
+    display: none;
+
+    @media only screen and (max-width: $breakpoint-sm) {
+        display: block;
+    }
+}

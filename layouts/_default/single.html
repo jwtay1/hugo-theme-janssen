@@ -1,9 +1,9 @@
 {{ define "main" }}
 <div class="article">
-  {{ with .TableOfContents }}
+  {{ if in .TableOfContents "li" }}
   <div class="toc">
-  <h2>On this page</h2>
-  {{ . }}
+    <h2>On this page</h2>
+    {{ .TableOfContents }}
   </div>
   {{ end }}
   <div class="article-main">
