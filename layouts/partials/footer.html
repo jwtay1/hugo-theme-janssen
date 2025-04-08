@@ -1,1 +1,43 @@
-<p>Copyright {{ now.Year }}. All rights reserved.</p>
+<div class="footer">
+    <div class="footer-links">
+        <div>
+        {{ with .Site.Menus.footer1 }}        
+            <ul>
+                {{ range . }}
+                <li><a href="{{ .URL }}"{{- with .Params.rel }}{{ if eq . "external" }}target="_blank"{{ end }}{{ end }}>{{ .Name }}</a></li>
+                {{ end }}
+            </ul>
+        {{ end }}
+        </div>
+        <div>
+        {{ with .Site.Menus.footer2 }}        
+            <ul>
+                {{ range . }}
+                <li><a href="{{ .URL }}"{{- with .Params.rel }}{{ if eq . "external" }}target="_blank"{{ end }}{{ end }}>{{ .Name }}</a></li>
+                {{ end }}
+            </ul>        
+        {{ end }}
+        </div>
+        <div>
+        {{ with .Site.Menus.footer3 }}        
+            <ul>
+                {{ range . }}
+                <li><a href="{{ .URL }}"{{- with .Params.rel }}{{ if eq . "external" }}target="_blank"{{ end }}{{ end }}>{{ .Name }}</a></li>
+                {{ end }}
+            </ul>
+        {{ end }}
+        </div>
+        <div>
+        {{ with .Site.Menus.footer4 }}
+            <ul>
+                {{ range . }}
+                <li><a href="{{ .URL }}"{{- with .Params.rel }}{{ if eq . "external" }}target="_blank"{{ end }}{{ end }}>{{ .Name }}</a></li>
+                {{ end }}
+            </ul>
+        {{ end }}
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <p class="text-copyright">{{- with site.Params.copyright }}{{ . | markdownify }}{{- end }} Built with Hugo and Janssen.</p>
+    </div>
+</div>

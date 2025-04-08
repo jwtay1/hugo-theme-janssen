@@ -5,25 +5,34 @@ title = 'My New Hugo Site'
 theme = 'hugo-theme-janssen'
 themesDir = '../..'
 
-[[menus.main]]
-name = 'Home'
-pageRef = '/'
-weight = 10
+sectionPagesMenu = 'main'
 
-[[menus.main]]
-name = 'Features'
-pageRef = '/features'
-weight = 12
+[params]
+  copyright = "Copyright &copy; 2025 This Person, Inc."
 
-[[menus.main]]
-name = 'Posts'
-pageRef = '/posts'
-weight = 20
+[menus]
+  [[menus.main]]
+  name = 'Home'
+  pageRef = '/'
+  weight = 10
+  [[menus.main]]
+  name = 'Features'
+  pageRef = '/features'
+  weight = 12
 
-[[menus.main]]
-name = 'Tags'
-pageRef = '/tags'
-weight = 30
+  [[menus.footer1]]
+    name = 'Link 1'
+    url = 'https://example.com'
+    
+    [menus.footer1.params]
+      rel = 'external'
+
+  [[menus.footer4]]
+    name = 'Link 1'
+    url = 'https://example.com'
+    
+    [menus.footer4.params]
+      rel = 'external'
 
 [module]
   [module.hugoVersion]

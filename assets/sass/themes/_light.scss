@@ -1,0 +1,21 @@
+:root[data-theme='light'] {
+    //Base colors
+    --background-color: #fff;
+    --text-color: #121416d8;
+    --link-color: #543fd7;
+
+
+    //Syntax highlighting
+    --chroma-bg: #eff1f5;
+    --chroma-color: #4c4f69;
+    --chroma-highlight: #bcc0cc;
+    --chroma-linenos: #8c8fa1;
+    --chroma-keyword: #8839ef;
+    --chroma-variable: #dc8a78;
+    --chroma-function: #1e66f5;
+    --chroma-string: #40a02b;    
+    --chroma-numbers: #fe640b;
+    --chroma-comment: #9ca0b0;
+    --chroma-deleted: #d20f39;
+    --chroma-generic: #44475a;
+}

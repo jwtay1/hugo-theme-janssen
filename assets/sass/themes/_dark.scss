@@ -1,0 +1,25 @@
+/* Generated using: hugo gen chromastyles --style=dracula */
+
+:root[data-theme='dark'] {
+    //Base colors
+    --background-color: #212a2e;
+    --text-color: #F7F8F8;
+    --link-color: #828fff;
+
+    //Syntax highlighting
+    --chroma-bg: #282a36;
+    --chroma-color: #f8f8f2;
+    --chroma-highlight: #3d3f4a;
+    --chroma-linenos: #7f7f7f;
+    --chroma-keyword: #ff79c6;
+    --chroma-variable: #8be9fd;
+    --chroma-function: #50fa7b;
+    --chroma-string: #f1fa8c;    
+    --chroma-numbers: #bd93f9;
+    --chroma-comment: #6272a4;
+    --chroma-deleted: #f55;
+    --chroma-generic: #44475a;
+}
+
+
+

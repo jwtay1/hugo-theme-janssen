@@ -88,3 +88,30 @@ function switchTheme(e) {
 
 toggle.addEventListener('change', switchTheme, false);
 
+//Copy button for code blocks - thanks to Bard!
+let codeBlocks = document.querySelectorAll('pre code');
+
+codeBlocks.forEach(codeBlock => {
+  let button = document.createElement('button');
+  button.className = 'copy-button';
+  button.innerText = 'Copy';
+
+  codeBlock.parentNode.style.position = 'relative';
+  button.style.position = 'absolute';
+  
+  codeBlock.parentNode.appendChild(button);
+
+  button.addEventListener('click', () => {
+    navigator.clipboard.writeText(codeBlock.innerText)
+      .then(() => {
+        button.innerText = 'Copied!';
+        setTimeout(() => {
+          button.innerText = 'Copy';
+        }, 2000);
+      })
+      .catch(err => {
+        console.error('Failed to copy text: ', err);
+        button.innerText = 'Error';
+      });
+  });
+});
