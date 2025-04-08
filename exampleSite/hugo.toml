@@ -9,6 +9,10 @@ sectionPagesMenu = 'main'
 
 [params]
   copyright = "Copyright &copy; 2025 This Person, Inc."
+  footer1_title = "Footer 1"
+  footer2_title = "Footer 2"
+  footer3_title = "Footer 3"
+  footer4_title = "Footer 4"
 
 [menus]
   [[menus.main]]

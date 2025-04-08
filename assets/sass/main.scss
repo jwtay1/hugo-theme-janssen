@@ -7,11 +7,9 @@
 @import "components/codeblock";
 
 @import "layouts/sidebar";
-
+@import "layouts/page";
 
 //Variables
-
-
 //https://dev.to/ananyaneogi/create-a-dark-light-mode-switch-with-css-variables-34l8
 //https://web.dev/articles/prefers-color-scheme
 
@@ -43,7 +41,7 @@ body {
     font-size: var(--base-font-size);
     color: var(--text-color);
     background-color: var(--background-color);
-  
+ 
     //Add animation when switching colors
     transition: color 0.3s ease, background-color 0.3s ease;
 }
@@ -226,46 +224,32 @@ input:checked+.slider:before {
     padding-top: 20px;
 }
 
+footer {
+    background-color: var(--footer-color);
+    margin-top: 50px;
+    padding-top: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+}
+
+footer h1 {
+    font-size: 1rem;
+    font-weight: 800;
+}
+
 .footer-links ul {
     list-style: none;
 }
 
-footer {
-    padding: 10px 30px;
+.footer-links ul > li {
+    margin-bottom: 10px;
 }
 
-#TableOfContents ul {
-    list-style: none;    
-}
+.footer-links ul > li a {
+    color: var(--text-color);
 
-#TableOfContents ul > li > ul {
-    margin-left: 15px;
-}
-
-.article {
-    display: grid;
-    grid-template-columns: 1fr 150px;
-    grid-template-areas: "main toc";
-
-    @media only screen and (max-width: $breakpoint-md) {
-        grid-template-columns: 1fr;
-        grid-template-areas: 
-            "toc"
-            "main";
-    }
-}
-
-.toc {
-    grid-area: toc;
-    width: 250px;
-}
-
-.article-main {
-    display: block;
-    grid-area: main;
-    max-width: 1100px;
-
-    @media only screen and (max-width: $breakpoint-sm) {
-        max-width: 95vw;
+    &:hover {
+        filter: brightness(125%);
     }
 }

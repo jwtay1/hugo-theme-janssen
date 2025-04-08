@@ -1,0 +1,38 @@
+.content-container {
+    padding: 0 20px;
+    margin: auto;
+    max-width: 1200px;
+
+    @media only screen and (max-width: $breakpoint-sm) {
+        padding: 0 10px;
+    }
+}
+
+#TableOfContents ul {
+    list-style: none;    
+}
+
+#TableOfContents ul > li > ul {
+    margin-left: 15px;
+}
+
+.article {
+    display: grid;
+    grid-template-columns: 1fr 150px;
+    grid-template-areas: "main toc";
+
+    @media only screen and (max-width: $breakpoint-md) {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas: 
+            "toc"
+            "main";
+    }
+}
+
+.toc {
+    grid-area: toc;
+}
+
+.article-main {
+    grid-area: main;
+}
