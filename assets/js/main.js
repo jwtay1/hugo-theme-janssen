@@ -1,42 +1,72 @@
+//Initialize the current page theme
+const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
 
-const menuToggler = document.getElementById("menuToggler");
-const html = document.documentElement;
-var isNavOpen = false;
-
-/**
- * Closes the sidebar menu if it is open
- * @param {*} ev 
- */
-function handleClicks(ev) {
-    ev.stopPropagation();
-
-    if (ev.target.id !== "navmenu") {
-        closeNav();
-    }
+if (currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme);
 }
 
-/**
- * Open the sidebar menu by appending the 'show' class
- */
-function openNav() {
-    menu = document.getElementById('navmenu');
+else {
 
-    if (menu.classList.contains('hide')) {
-        menu.classList.remove('hide');
-    }
+    //See if there's a preferred theme. If not, default to light.
+    var preferredTheme = (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
 
-    if (!menu.classList.contains('show')) {
-        menu.classList.add('show');
+    document.documentElement.setAttribute('data-theme', preferredTheme);
+}
+
+function switchTheme(e) {
+
+    if (e.target.checked) {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
     }
-    
-    html.addEventListener("click", handleClicks, true);
+    else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+    }
 
 }
 
-/**
- * Closes the sidebar menu by removing the 'show' class
- */
-function closeNav() {
+//These run after the page has loaded
+window.onload = function () {
+
+    const menuToggler = document.getElementById("menuToggler");
+    const html = document.documentElement;
+    var isNavOpen = false;
+
+    /**
+     * Closes the sidebar menu if it is open
+     * @param {*} ev 
+     */
+    function handleClicks(ev) {
+        ev.stopPropagation();
+
+        if (ev.target.id !== "navmenu") {
+            closeNav();
+        }
+    }
+
+    /**
+     * Open the sidebar menu by appending the 'show' class
+     */
+    function openNav() {
+        menu = document.getElementById('navmenu');
+
+        if (menu.classList.contains('hide')) {
+            menu.classList.remove('hide');
+        }
+
+        if (!menu.classList.contains('show')) {
+            menu.classList.add('show');
+        }
+
+        html.addEventListener("click", handleClicks, true);
+
+    }
+
+    /**
+     * Closes the sidebar menu by removing the 'show' class
+     */
+    function closeNav() {
 
         console.log("Close")
 
@@ -52,71 +82,51 @@ function closeNav() {
 
         html.removeEventListener("click", handleClicks, true);
 
-}
+    }
 
-menuToggler.onclick = openNav;
+    menuToggler.onclick = openNav;
 
-//Table of contents toggler
-window.showTOC = function showTOC() {
-    var toc = document.getElementById("toc").classList.toggle("unfold");
-}
+    //Table of contents toggler
+    window.showTOC = function showTOC() {
+        var toc = document.getElementById("toc").classList.toggle("unfold");
+    }
 
-//Theme toggler
+    //Theme toggler
+    const toggle = document.getElementById("theme-toggle");
 
-const toggle = document.getElementById("theme-toggle");
-const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
-
-if (currentTheme) {
-    document.documentElement.setAttribute('data-theme', currentTheme);
-
+    //Set initial value
     if (currentTheme === 'light') {
         toggle.checked = true;
     }
-}
 
-var storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-if (storedTheme)
-    document.documentElement.setAttribute('data-theme', storedTheme)
+    //Add a listener to the theme switcher
+    toggle.addEventListener('change', switchTheme, true);
 
-function switchTheme(e) {
+    //Add copy button for code blocks - thanks to Bard!
+    let codeBlocks = document.querySelectorAll('pre code');
 
-    if (e.target.checked) {
-        document.documentElement.setAttribute('data-theme', 'light');
-        localStorage.setItem('theme', 'light');
-    }
-    else {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
-    }
+    codeBlocks.forEach(codeBlock => {
+        let button = document.createElement('button');
+        button.className = 'copy-button';
+        button.innerText = 'Copy';
 
-}
+        codeBlock.parentNode.style.position = 'relative';
+        button.style.position = 'absolute';
 
-toggle.addEventListener('change', switchTheme, false);
+        codeBlock.parentNode.appendChild(button);
 
-//Copy button for code blocks - thanks to Bard!
-let codeBlocks = document.querySelectorAll('pre code');
-
-codeBlocks.forEach(codeBlock => {
-  let button = document.createElement('button');
-  button.className = 'copy-button';
-  button.innerText = 'Copy';
-
-  codeBlock.parentNode.style.position = 'relative';
-  button.style.position = 'absolute';
-  
-  codeBlock.parentNode.appendChild(button);
-
-  button.addEventListener('click', () => {
-    navigator.clipboard.writeText(codeBlock.innerText)
-      .then(() => {
-        button.innerText = 'Copied!';
-        setTimeout(() => {
-          button.innerText = 'Copy';
-        }, 2000);
-      })
-      .catch(err => {
-        console.error('Failed to copy text: ', err);
-        button.innerText = 'Error';
-      });
-  });
-});
+        button.addEventListener('click', () => {
+            navigator.clipboard.writeText(codeBlock.innerText)
+                .then(() => {
+                    button.innerText = 'Copied!';
+                    setTimeout(() => {
+                        button.innerText = 'Copy';
+                    }, 2000);
+                })
+                .catch(err => {
+                    console.error('Failed to copy text: ', err);
+                    button.innerText = 'Error';
+                });
+        });
+    });
+};
