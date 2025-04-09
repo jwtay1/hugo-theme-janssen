@@ -56,6 +56,11 @@ function closeNav() {
 
 menuToggler.onclick = openNav;
 
+//Table of contents toggler
+window.showTOC = function showTOC() {
+    var toc = document.getElementById("toc").classList.toggle("unfold");
+}
+
 //Theme toggler
 
 const toggle = document.getElementById("theme-toggle");

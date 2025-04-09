@@ -1,11 +1,12 @@
 :root[data-theme='light'] {
     //Base colors
     --background-color: #fff;
-    --text-color: #121416d8;
+    --background-color-secondary: #f0f0f0;
+    --text-color: #121416;
     --link-color: #543fd7;
     --footer-color: #e2edef;
+    --footer-link-color: #2a2c2e;
    
-
     //Syntax highlighting
     --chroma-bg: #eff1f5;
     --chroma-color: #4c4f69;

@@ -36,3 +36,66 @@
 .article-main {
     grid-area: main;
 }
+
+.dropbtn {
+    background-color: var(--background-color-secondary);
+    color: var(--text-color);
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    display: none;
+    fill: var(--text-color);
+    
+    @media only screen and (max-width: $breakpoint-md) {
+        display: block;
+    }
+
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: display;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+
+    @media only screen and (max-width: $breakpoint-md) {
+        transition: all 0.3s ease;
+        max-height: 0;
+        overflow: hidden;
+        background-color: var(--background-color-secondary);
+        box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.2);
+    }
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: var(--text-color);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;    
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    color: var(--link-color);
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.unfold {        
+
+    border-top: 1px solid var(--text-color);
+
+    @media only screen and (max-width: $breakpoint-md) {
+        max-height: 500px;
+    }
+}

@@ -1,6 +1,8 @@
 @import "vendors/normalize";
 @import "abstracts/variables";
 
+@import "base/base";
+
 @import "themes/dark";
 @import "themes/light";
 
@@ -9,11 +11,6 @@
 @import "layouts/sidebar";
 @import "layouts/page";
 
-//Variables
-//https://dev.to/ananyaneogi/create-a-dark-light-mode-switch-with-css-variables-34l8
-//https://web.dev/articles/prefers-color-scheme
-
-//Color schemes
 :root {
     //Default colors in case browser does not support data-theme
     --text-color: #000;
@@ -28,37 +25,6 @@
     --slider-on: calc(var(--switch-height) - var(--switch-padding));    
 }
 
-//Base styles
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    line-height: 1.5;
-}
-
-body {
-    font-family: $font-family-sans;
-    font-size: var(--base-font-size);
-    color: var(--text-color);
-    background-color: var(--background-color);
- 
-    //Add animation when switching colors
-    transition: color 0.3s ease, background-color 0.3s ease;
-}
-
-body svg {
-    fill: var(--text-color);
-}
-
-a {
-    color: var(--link-color);
-    text-decoration: none;
-}
-
-body p {
-    margin-bottom: 20px;
-}
-
 main {
     //Display the sidebar
     display: grid;
@@ -70,41 +36,12 @@ main {
     }
 }
 
-#content h1 {
-    font-size: calc(var(--base-font-size) * 1.8);
-    margin: 1rem 0;
-}
-
-#content h2 {
-    font-size: calc(var(--base-font-size) * 1.6);
-    margin: 0.9rem 0;
-}
-
-#content h3 {
-    font-size: calc(var(--base-font-size) * 1.4);
-    margin: 0.8rem 0;
-}
-
-#content h4 {
-    font-size: calc(var(--base-font-size) * 1.2);
-    margin: 0.7rem 0;
-}
-
-#content h5 {
-    font-size: calc(var(--base-font-size) * 1.1);
-    margin: 0.6rem 0;
-}
-
-#content h6 {
-    font-size: calc(var(--base-font-size) * 1);
-    margin: 0.5rem 0;
-}
-
 //Navigation
 .topnav {
     display: flex;
     height: 60px;
     margin-bottom: 30px;
+    background-color: var(--footer-color);
 }
 
 .topnav .sidebar-toggler {
@@ -143,7 +80,6 @@ main {
 
 
 //Dark/Light theme slider
-
 .switch {
     position: relative;
     display: inline-block;
@@ -217,7 +153,7 @@ input:checked+.slider:before {
 
     @media only screen and (max-width: $breakpoint-sm) {
         grid-template-columns: 1fr;
-    }
+    }   
 }
 
 .footer-copyright {
@@ -247,9 +183,9 @@ footer h1 {
 }
 
 .footer-links ul > li a {
-    color: var(--text-color);
+    color: var(--footer-link-color);
 
     &:hover {
-        filter: brightness(125%);
+        filter: brightness(200%);
     }
 }

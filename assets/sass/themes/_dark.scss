@@ -2,10 +2,12 @@
 
 :root[data-theme='dark'] {
     //Base colors
-    --background-color: #212a2e;
+    --background-color: #1b1b1b;
+    --background-color-secondary: #2c2c2c;
     --text-color: #F7F8F8;
     --link-color: #828fff;
-    --footer-color: #0e1213;
+    --footer-color: #2c2c2c;
+    --footer-link-color: #c4c4c4;
 
     //Syntax highlighting
     --chroma-bg: #282a36;
