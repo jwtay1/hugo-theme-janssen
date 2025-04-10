@@ -55,12 +55,54 @@
 .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    color: #818181;
-    display: block;
-    transition: 0.3s;  
+    color: var(--text-color);
+    display: inline-block;
+    transition: 0.3s;
 
     @media only screen and (max-width: $breakpoint-sm) {
         font-size: 18px;
+    }
+}
+
+.sidenav ul {
+    list-style-type: none;
+}
+
+.sidenav ul > li > ul {
+    padding-left: 10px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    vertical-align: middle;
+
+    &.unfold-sidebar {
+        max-height: 500px;
+    }
+}
+
+.icon-dropdown {
+    background-color: var(--background-color);
+    float: right;
+    border: none;
+    height: 100%;
+}
+
+.icon-dropdown svg {
+    transition: all 0.3s ease;
+}
+
+.icon-dropdown:hover {
+    background-color: whitesmoke;
+}
+
+.icon-dropdown svg:hover {
+    fill: var(--link-color);
+}
+
+.icon-dropdown a {
+
+    &:hover svg {
+        fill: #fff;
     }
 }
 
@@ -70,7 +112,7 @@
 }
 
 .sidenav a:hover {
-    color: var(--text-color);
+    color: var(--link-color);
 }
 
 .sidenav .closebtn {

@@ -36,6 +36,7 @@ Renders a menu for the given menu ID.
         {{- $name = . }}
       {{- end }}
     {{- end }}
+    {{- $isdropdown := or .HasChildren (eq .Page.Kind "section") }}
     <li>
       <a
         {{- range $k, $v := $attrs }}
@@ -44,10 +45,20 @@ Renders a menu for the given menu ID.
           {{- end }}
         {{- end -}}
       >{{ $name }}</a>
+      {{- if $isdropdown -}}
+        <button class="icon-dropdown" onclick="unfold(this)"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg></button>
+      {{- end -}}
       {{- with .Children }}
         <ul>
           {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
         </ul>
+      {{- end }}
+      {{- if eq  .Page.Kind "section" }}
+        <ul>
+        {{ range .Page.RegularPages }}
+          <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+        {{ end }}
+      </ul>
       {{- end }}
     </li>
   {{- end }}

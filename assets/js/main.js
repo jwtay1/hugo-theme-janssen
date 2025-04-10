@@ -91,6 +91,20 @@ window.onload = function () {
         var toc = document.getElementById("toc").classList.toggle("unfold");
     }
 
+    //Sidebar item toggler
+    window.unfold = function unfold(obj) {
+        var lists = obj.parentElement.getElementsByTagName('ul');
+        lists[0].classList.toggle("unfold-sidebar");
+
+        var svgs = obj.parentElement.getElementsByTagName('svg');
+        if (lists[0].classList.contains("unfold-sidebar")) {            
+            svgs[0].style.transform = 'rotate(90deg)';
+        }
+        else {
+            svgs[0].style.transform = '';
+        }
+    }
+
     //Theme toggler
     const toggle = document.getElementById("theme-toggle");
 
