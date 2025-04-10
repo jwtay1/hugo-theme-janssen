@@ -1,3 +1,5 @@
+@use "./abstracts" as *;
+
 // Code blocks
 .code-block-container {
     background-color: var(--chroma-bg);

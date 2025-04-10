@@ -1,16 +1,16 @@
-@import "vendors/normalize";
-@import "abstracts/variables";
+@use "vendors/normalize";
+@use "./abstracts" as *;
 
-@import "base/base";
+@use "base/base";
 
-@import "themes/dark";
-@import "themes/light";
+@use "themes/dark";
+@use "themes/light";
 
-@import "components/codeblock";
+@use "components/codeblock";
 
-@import "layouts/topbar";
-@import "layouts/sidebar";
-@import "layouts/page";
+@use "layouts/topbar";
+@use "layouts/sidebar";
+@use "layouts/page";
 
 :root {
     //Default colors in case browser does not support data-theme
