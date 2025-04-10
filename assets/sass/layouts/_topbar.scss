@@ -32,6 +32,10 @@
     font-family: $font-family-sans;
     font-weight: 600;
     font-size: calc(var(--base-font-size) * 1.8);
+
+    @media only screen and (max-width: $breakpoint-sm) {
+        font-size: 5vw;
+    }
 }
 
 .site-title a {

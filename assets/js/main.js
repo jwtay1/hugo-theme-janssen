@@ -38,10 +38,10 @@ window.onload = function () {
      * @param {*} ev 
      */
     function handleClicks(ev) {
-        ev.stopPropagation();
 
-        if (ev.target.id !== "navmenu") {
+        if (ev.target.id !== "navmenu" && !(ev.target.classList.contains("btn-dropdown-icon") || ev.target.classList.contains("dd-icon"))) {
             closeNav();
+            ev.stopPropagation();
         }
     }
 
@@ -67,9 +67,6 @@ window.onload = function () {
      * Closes the sidebar menu by removing the 'show' class
      */
     function closeNav() {
-
-        console.log("Close")
-
         menu = document.getElementById('navmenu');
 
         if (menu.classList.contains('show')) {
@@ -90,8 +87,6 @@ window.onload = function () {
     window.showTOC = function showTOC() {
         var toc = document.getElementById("toc");
         toc.classList.toggle("unfold");
-
-        console.log(this);
 
         var dropbtn = toc.parentElement.getElementsByTagName("button");
         if (toc.classList.contains("unfold")) {                        

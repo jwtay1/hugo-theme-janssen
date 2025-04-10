@@ -64,3 +64,11 @@ body p {
     font-size: calc(var(--base-font-size) * 1);
     margin: 0.5rem 0;
 }
+
+.article-main ul, ol {
+    margin-left: 40px;
+
+    > li {
+        margin-bottom: 10px;
+    }
+}

@@ -16,9 +16,9 @@ sectionPagesMenu = 'main'
 
 [menus]
   [[menus.main]]
-  name = 'Home'
-  pageRef = '/'
-  weight = 10
+  name = 'Getting started'
+  pageRef = '/getting-started'
+  weight = 1
   
   [[menus.main]]
   name = 'Features'
