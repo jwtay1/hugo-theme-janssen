@@ -88,7 +88,18 @@ window.onload = function () {
 
     //Table of contents toggler
     window.showTOC = function showTOC() {
-        var toc = document.getElementById("toc").classList.toggle("unfold");
+        var toc = document.getElementById("toc");
+        toc.classList.toggle("unfold");
+
+        console.log(this);
+
+        var dropbtn = toc.parentElement.getElementsByTagName("button");
+        if (toc.classList.contains("unfold")) {                        
+            dropbtn[0].style.borderRadius = "10px 10px 0 0";
+        }
+        else {
+            dropbtn[0].style.borderRadius = "10px";
+        }
     }
 
     //Sidebar item toggler

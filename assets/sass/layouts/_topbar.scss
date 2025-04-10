@@ -1,0 +1,42 @@
+//Navigation
+.topnav {
+    display: flex;
+    height: 60px;
+    margin-bottom: 30px;
+    background-color: var(--footer-color);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 5px 0px
+}
+
+.topnav .sidebar-toggler {
+    padding: 10px;   
+    vertical-align: middle; 
+}
+
+.topnav .site-title-bar {
+    vertical-align: middle;
+    text-align: left;
+    width: auto;
+    flex-grow: 1;
+    padding: 10px;
+}
+
+.topnav .theme-toggler {
+    padding: 25px 16px;
+    vertical-align: middle;
+}
+
+.site-title {
+    vertical-align: middle;
+    font-family: $font-family-serif;
+    font-weight: 800;
+    font-size: calc(var(--base-font-size) * 1.8);
+}
+
+.site-title a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.site-icon {
+    vertical-align: middle;
+}

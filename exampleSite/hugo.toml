@@ -19,6 +19,7 @@ sectionPagesMenu = 'main'
   name = 'Home'
   pageRef = '/'
   weight = 10
+  
   [[menus.main]]
   name = 'Features'
   pageRef = '/features'
