@@ -38,6 +38,9 @@ Renders a menu for the given menu ID.
     {{- end }}
     {{- $isdropdown := or .HasChildren (eq .Page.Kind "section") }}
     <li>
+      {{- if $isdropdown -}}
+      <div class="sidebar-dropdown">
+      {{- end -}}
       <a
         {{- range $k, $v := $attrs }}
           {{- with $v }}
@@ -46,7 +49,8 @@ Renders a menu for the given menu ID.
         {{- end -}}
       >{{ $name }}</a>
       {{- if $isdropdown -}}
-        <button class="icon-dropdown" onclick="unfold(this)"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg></button>
+        <button class="btn-dropdown-icon" onclick="unfold(this)"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg></button>
+      </div>
       {{- end -}}
       {{- with .Children }}
         <ul>

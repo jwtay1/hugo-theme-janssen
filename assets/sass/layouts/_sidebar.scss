@@ -62,10 +62,29 @@
     @media only screen and (max-width: $breakpoint-sm) {
         font-size: 18px;
     }
+
+    &:hover {
+        color: var(--link-color);
+    }
+}
+
+.sidenav a.active {
+    color: var(--text-color);
+    background-color: #282828;
 }
 
 .sidenav ul {
     list-style-type: none;
+    margin-left: 10px;
+}
+
+.sidenav ul > li > a {
+    width: 100%;
+    border-radius: 5px;
+
+    &:hover {
+        background-color: #282828;
+    }
 }
 
 .sidenav ul > li > ul {
@@ -80,39 +99,38 @@
     }
 }
 
-.icon-dropdown {
-    background-color: var(--background-color);
-    float: right;
-    border: none;
-    height: 100%;
-}
+.sidebar-dropdown {
+    display: flex;
+    align-items: center;
 
-.icon-dropdown svg {
-    transition: all 0.3s ease;
-}
-
-.icon-dropdown:hover {
-    background-color: whitesmoke;
-}
-
-.icon-dropdown svg:hover {
-    fill: var(--link-color);
-}
-
-.icon-dropdown a {
-
-    &:hover svg {
-        fill: #fff;
+    &:hover {
+        background-color: #282828;
     }
 }
 
-.sidenav a.active {
-    color: var(--text-color);
-    
+.sidebar-dropdown a {
+    flex-grow: 1;
+    border-radius: 10px;
 }
 
-.sidenav a:hover {
-    color: var(--link-color);
+.btn-dropdown-icon {
+    background-color: inherit;
+    border: none;
+    width: 50px;
+    padding: 7px 0;
+    border-radius: 10px;
+    z-index: 1;
+    position: relative;
+    right: 0;
+}
+
+.btn-dropdown-icon:hover {
+    background-color: #393939;
+}
+
+.btn-dropdown-icon svg {
+    transition: all 0.3s ease;
+    vertical-align: middle;
 }
 
 .sidenav .closebtn {

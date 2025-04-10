@@ -93,7 +93,7 @@ window.onload = function () {
 
     //Sidebar item toggler
     window.unfold = function unfold(obj) {
-        var lists = obj.parentElement.getElementsByTagName('ul');
+        var lists = obj.parentElement.parentElement.getElementsByTagName('ul');
         lists[0].classList.toggle("unfold-sidebar");
 
         var svgs = obj.parentElement.getElementsByTagName('svg');
