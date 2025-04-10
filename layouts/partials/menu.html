@@ -37,7 +37,7 @@ Renders a menu for the given menu ID.
       {{- end }}
     {{- end }}
     {{- $isdropdown := or .HasChildren (eq .Page.Kind "section") }}
-    <li>
+    <li {{ if $page.HasMenuCurrent .Menu .}}class="unfold-sidebar"{{- end -}}>
       {{- if $isdropdown -}}
       <div class="sidebar-dropdown">
       {{- end -}}
@@ -60,7 +60,7 @@ Renders a menu for the given menu ID.
       {{- if eq  .Page.Kind "section" }}
         <ul>
         {{ range .Page.RegularPages }}
-          <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+          <li><a href="{{ .RelPermalink }}" {{ if (eq $page.Path .Path) }}class="active"{{ end -}}>{{ .Title }}</a></li>
         {{ end }}
       </ul>
       {{- end }}

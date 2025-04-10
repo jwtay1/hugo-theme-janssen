@@ -22,11 +22,10 @@
     padding-top: 15px;
     background-color: var(--background-color);
     border-right: 1px solid #dcdcdc38;
-
     
     @media only screen and (min-width: $breakpoint-sm) {
         display: block;
-        padding-top: 10px;
+        padding-top: 0;
         position: static;
         animation-name: none;
         background-color: inherit;
@@ -77,6 +76,11 @@
     background-color: var(--sidebar-active-background-color);
 }
 
+.sidenav a.ancestor {
+    color: var(--link-color);
+    //background-color: var(--sidebar-active-background-color);
+}
+
 .sidenav ul {
     list-style-type: none;
     margin-left: 10px;
@@ -98,9 +102,20 @@
     transition: all 0.3s ease;
     vertical-align: middle;
 
-    &.unfold-sidebar {
+  //  &.unfold-sidebar {
+   //     max-height: 500px;
+   // }
+}
+
+.sidenav ul > li.unfold-sidebar {
+
+    > ul {
         max-height: 500px;
     }
+
+    > .sidebar-dropdown > .btn-dropdown-icon > svg {
+        transform: rotate(90deg);
+    }    
 }
 
 .sidebar-dropdown {
