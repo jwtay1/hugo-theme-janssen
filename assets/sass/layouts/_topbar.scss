@@ -5,13 +5,26 @@
     display: flex;
     height: 60px;
     margin-bottom: 30px;
-    background-color: var(--footer-color);
+    background-color: var(--topbar-background-color);
     box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 5px 0px
 }
 
-.topnav .sidebar-toggler {
-    padding: 10px;   
+.sidebar-toggler {    
     vertical-align: middle; 
+
+    @media only screen and (max-width: $breakpoint-sm) {
+        padding: 10px;   
+    }
+}
+
+.site-icon {
+    vertical-align: middle;
+    height: 100%;
+    padding: 0 20px;
+
+    @media only screen and (max-width: $breakpoint-sm) {
+        padding-left: 0;
+    }
 }
 
 .site-title-bar {
@@ -41,10 +54,6 @@
 .site-title a {
     text-decoration: none;
     color: var(--text-color);
-}
-
-.site-icon {
-    vertical-align: middle;
 }
 
 .topnav .theme-toggler {

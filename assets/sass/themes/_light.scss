@@ -1,16 +1,17 @@
 :root[data-theme='light'] {
     //Base colors
     --background-color: #f3f3f3;
-    --background-color-secondary: #e7e7e7;
     --text-color: #121416;
     --link-color: #543fd7;
-    --footer-color: #f2f2f2;
-    --footer-link-color: #2a2c2e;
+    --topbar-background-color: #f3f3f3;
+    --footer-color: #2c2c2c;
+    --footer-link-color: #F7F8F8;
     --sidebar-background-color: rgba(0, 0, 0, 0.05);
     --sidebar-active-background-color: rgba(0, 0, 0, 0.07);
     --sidebar-icon-background-color: rgba(0, 0, 0, 0.1);
    
     //Syntax highlighting
+    /* Generated using: hugo gen chromastyles --style=catppuccin-latte */
     --chroma-bg: #eff1f5;
     --chroma-color: #4c4f69;
     --chroma-highlight: #bcc0cc;

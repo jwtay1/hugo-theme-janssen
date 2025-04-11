@@ -1,18 +1,17 @@
-/* Generated using: hugo gen chromastyles --style=dracula */
-
 :root[data-theme='dark'] {
     //Base colors
     --background-color: #1b1b1b;
-    --background-color-secondary: #2c2c2c;
     --text-color: #F7F8F8;
     --link-color: #828fff;
+    --topbar-background-color: #2c2c2c;
     --footer-color: #2c2c2c;
-    --footer-link-color: #c4c4c4;
+    --footer-link-color: #e5e5e5;
     --sidebar-background-color: rgba(255, 255, 255, 0.05);
     --sidebar-active-background-color: rgba(255, 255, 255, 0.07);
     --sidebar-icon-background-color: rgba(255, 255, 255, 0.1);
    
     //Syntax highlighting
+    /* Generated using: hugo gen chromastyles --style=dracula */
     --chroma-bg: #282a36;
     --chroma-color: #f8f8f2;
     --chroma-highlight: #3d3f4a;

@@ -1,27 +1,34 @@
 @use "./abstracts" as *;
 
 #menuToggler {
-    //Style for hamburger button
     display: none;
 
     @media only screen and (max-width: $breakpoint-sm) {
         display: block;
+        padding: 10px;
+    }
+    
+    > a > svg {
+        vertical-align: middle; 
     }
 }
 
-.sidenav {
-    height: 100%;
-    width: 250px;
+.sidebar {
     position: fixed;
-    z-index: 1;
     top: 0;
     left: 0;
+    z-index: 1;
+    height: 100%;
+    min-height: 65vh;
+    width: 250px;   
     overflow-x: hidden;
-    display: none;
     padding-right: 7px;
     padding-top: 15px;
     background-color: var(--background-color);
-    border-right: 1px solid #dcdcdc38;
+    border-right: 2px solid #dcdcdc38;
+
+    //Hide on small screen
+    display: none;    
     
     @media only screen and (min-width: $breakpoint-sm) {
         display: block;
@@ -33,9 +40,21 @@
     }
 }
 
+.sidebar.show {
+    display: block !important; //Reveals the sidebar
+    animation-name: slidein !important;
+    animation-duration: 0.5s;
+}
+
 @keyframes slidein {
     from {left: -250px;}
     to {left: 0px;}
+}
+
+.sidebar.hide {
+    display: block !important;
+    animation-name: slideout !important;
+    animation-duration: 0.5s;
 }
 
 @keyframes slideout {
@@ -43,19 +62,26 @@
     to {left: -250px;}
 }
 
-.sidenav.hide {
-    display: block !important;
-    animation-name: slideout !important;
-    animation-duration: 0.5s;
+.sidebar-btn-close {
+    display: none;
+    position: relative;
+    font-size: 20px;    
+    background-color: var(--background-color);
+    border: none;
+    margin-left: 10px;
+
+    @media only screen and (max-width: $breakpoint-sm) {
+        display: block;
+    }
 }
 
-.sidenav.show {
-    display: block !important; //Reveals the sidebar
-    animation-name: slidein !important;
-    animation-duration: 0.5s;
+//Sidebar navigation links
+.sidebar ul {
+    list-style-type: none;
+    margin-left: 10px;
 }
 
-.sidenav a {
+.sidebar a {
     padding: 8px 8px 8px 12px;
     text-decoration: none;
     color: var(--text-color);
@@ -66,27 +92,22 @@
         font-size: 18px;
     }
 
+    &.active {
+        color: var(--link-color);
+        background-color: var(--sidebar-active-background-color);
+    }
+
+    &.ancestor {
+        color: var(--link-color);
+        //background-color: var(--sidebar-active-background-color);
+    }
+
     &:hover {
         color: var(--link-color);
     }
 }
 
-.sidenav a.active {
-    color: var(--link-color);
-    background-color: var(--sidebar-active-background-color);
-}
-
-.sidenav a.ancestor {
-    color: var(--link-color);
-    //background-color: var(--sidebar-active-background-color);
-}
-
-.sidenav ul {
-    list-style-type: none;
-    margin-left: 10px;
-}
-
-.sidenav ul > li > a {
+.sidebar ul > li > a {
     width: 100%;
     border-radius: 5px;
 
@@ -95,45 +116,19 @@
     }
 }
 
-.sidenav ul > li > ul {
-    padding-left: 10px;
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    vertical-align: middle;
-
-  //  &.unfold-sidebar {
-   //     max-height: 500px;
-   // }
-}
-
-.sidenav ul > li.unfold-sidebar {
+.sidebar ul > li.unfold-sidebar {
 
     > ul {
         max-height: 500px;
     }
 
-    > .sidebar-dropdown > .btn-dropdown-icon > svg {
+    > .sidebar-dropdown > .sidebar-btn-icon > svg {
         transform: rotate(90deg);
     }    
 }
 
-.sidebar-dropdown {
-    display: flex;
-    align-items: center;
-    border-radius: 5px;
-
-    &:hover {
-        background-color: var(--sidebar-background-color);
-    }
-}
-
-.sidebar-dropdown a {
-    flex-grow: 1;
-    border-radius: 5px;
-}
-
-.btn-dropdown-icon {
+//Secondary links
+.sidebar-btn-icon {
     background-color: inherit;
     border: none;
     width: 50px;
@@ -142,26 +137,38 @@
     z-index: 1;
     position: relative;
     right: 0;
+
+    &:hover {
+        background-color: var(--sidebar-icon-background-color);
+    }
+
+    & svg {
+        transition: all 0.3s ease;
+        vertical-align: middle;
+    }
 }
 
-.btn-dropdown-icon:hover {
-    background-color: var(--sidebar-icon-background-color);
-}
-
-.btn-dropdown-icon svg {
+.sidebar ul > li > ul {
+    padding-left: 10px;
+    max-height: 0;
+    overflow: hidden;
     transition: all 0.3s ease;
     vertical-align: middle;
 }
 
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 5px;
-    font-size: 20px;
-    margin-left: 50px;
-    display: none;
+.sidebar-dropdown {
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
 
-    @media only screen and (max-width: $breakpoint-sm) {
-        display: block;
+    & a {
+        flex-grow: 1;
+        border-radius: 5px;
+    }
+
+    &:hover {
+        background-color: var(--sidebar-background-color);
     }
 }
+
+

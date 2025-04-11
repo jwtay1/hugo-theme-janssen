@@ -1,55 +1,53 @@
-<div class="footer">
+<div class="footer-links-container">
     <div class="footer-links">
-        <div>
-        {{ with .Site.Menus.footer1 }}        
-            {{ with site.Params.footer1_title }}
-            <h1>{{ . }}</h1>
+    {{ with .Site.Menus.footer1 }}        
+        {{ with site.Params.footer1_title }}
+        <h1 class="footer-h1">{{ . }}</h1>
+        {{ end }}
+        <ul>
+            {{ range . }}
+            <li><a href="{{ .URL }}"{{- with .Params.rel }}{{ if eq . "external" }}target="_blank"{{ end }}{{ end }}>{{ .Name }}</a></li>
             {{ end }}
-            <ul>
-                {{ range . }}
-                <li><a href="{{ .URL }}"{{- with .Params.rel }}{{ if eq . "external" }}target="_blank"{{ end }}{{ end }}>{{ .Name }}</a></li>
-                {{ end }}
-            </ul>
-        {{ end }}
-        </div>
-        <div>
-        {{ with .Site.Menus.footer2 }}  
-            {{ with site.Params.footer2_title }}
-            <h1>{{ . }}</h1>
-            {{ end }}      
-            <ul>
-                {{ range . }}
-                <li><a href="{{ .URL }}"{{- with .Params.rel }}{{ if eq . "external" }}target="_blank"{{ end }}{{ end }}>{{ .Name }}</a></li>
-                {{ end }}
-            </ul>        
-        {{ end }}
-        </div>
-        <div>
-        {{ with .Site.Menus.footer3 }}   
-            {{ with site.Params.footer3_title }}
-            <h1>{{ . }}</h1>
-            {{ end }}          
-            <ul>
-                {{ range . }}
-                <li><a href="{{ .URL }}"{{- with .Params.rel }}{{ if eq . "external" }}target="_blank"{{ end }}{{ end }}>{{ .Name }}</a></li>
-                {{ end }}
-            </ul>
-        {{ end }}
-        </div>
-        <div>
-        {{ with .Site.Menus.footer4 }}
-            {{ with site.Params.footer4_title }}
-            <h1>{{ . }}</h1>
-            {{ end }}     
-            <ul>
-                {{ range . }}
-                <li><a href="{{ .URL }}"{{- with .Params.rel }}{{ if eq . "external" }}target="_blank"{{ end }}{{ end }}>{{ .Name }}</a></li>
-                {{ end }}
-            </ul>
-        {{ end }}
-        </div>
+        </ul>
+    {{ end }}
     </div>
-    <div class="footer-copyright">
-        <p class="text-copyright">{{- with site.Params.copyright }}{{ . | markdownify }}{{- end }} Built with <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/jwtay1/hugo-theme-janssen">Janssen</a>.</p>
+    <div class="footer-links">
+    {{ with .Site.Menus.footer2 }}  
+        {{ with site.Params.footer2_title }}
+        <h1 class="footer-h1">{{ . }}</h1>
+        {{ end }}      
+        <ul>
+            {{ range . }}
+            <li><a href="{{ .URL }}"{{- with .Params.rel }}{{ if eq . "external" }}target="_blank"{{ end }}{{ end }}>{{ .Name }}</a></li>
+            {{ end }}
+        </ul>        
+    {{ end }}
     </div>
+    <div class="footer-links">
+    {{ with .Site.Menus.footer3 }}   
+        {{ with site.Params.footer3_title }}
+        <h1 class="footer-h1">{{ . }}</h1>
+        {{ end }}          
+        <ul>
+            {{ range . }}
+            <li><a href="{{ .URL }}"{{- with .Params.rel }}{{ if eq . "external" }}target="_blank"{{ end }}{{ end }}>{{ .Name }}</a></li>
+            {{ end }}
+        </ul>
+    {{ end }}
+    </div>
+    <div class="footer-links">
+    {{ with .Site.Menus.footer4 }}
+        {{ with site.Params.footer4_title }}
+        <h1 class="footer-h1">{{ . }}</h1>
+        {{ end }}     
+        <ul>
+            {{ range . }}
+            <li><a href="{{ .URL }}"{{- with .Params.rel }}{{ if eq . "external" }}target="_blank"{{ end }}{{ end }}>{{ .Name }}</a></li>
+            {{ end }}
+        </ul>
+    {{ end }}
+    </div>
+</div>
+<div class="footer-copyright">
+    <p>{{- with site.Params.copyright }}{{ . | markdownify }}{{- end }} Built with <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/jwtay1/hugo-theme-janssen">Janssen</a>.</p>
 </div>
