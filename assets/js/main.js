@@ -86,10 +86,10 @@ window.onload = function () {
     //Table of contents toggler
     window.showTOC = function showTOC() {
         var toc = document.getElementById("toc");
-        toc.classList.toggle("unfold");
+        toc.classList.toggle("unfold-toc");
 
         var dropbtn = toc.parentElement.getElementsByTagName("button");
-        if (toc.classList.contains("unfold")) {                        
+        if (toc.classList.contains("unfold-toc")) {                        
             dropbtn[0].style.borderRadius = "10px 10px 0 0";
         }
         else {

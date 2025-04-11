@@ -1,9 +1,9 @@
 {{ define "main" }}
 <div class="content-container article">
     {{ if in .TableOfContents "li" }}
-    <div class="dropdown">
-      <button class="btn-toc-dropdown" onclick="showTOC()">On this page<span style="float:right;"><svg style="vertical-align: middle;" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M480-360 280-560h400L480-360Z"/></svg></span></button>
-      <div class="dropdown-content" id="toc">
+    <div class="toc-container">
+      <button class="toc-btn-dropdown" onclick="showTOC()">On this page<span style="float:right;"><svg style="vertical-align: middle;" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M480-360 280-560h400L480-360Z"/></svg></span></button>
+      <div class="toc-content" id="toc">
         {{ .TableOfContents }}
       </div>
     </div>
