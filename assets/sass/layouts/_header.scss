@@ -1,0 +1,64 @@
+@use "./utils" as *;
+
+header {
+    padding: 10px 20px;
+    background-color: var(--header-background-color);
+    color: var(--header-text-color);
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 5px 0px;
+}
+
+.navbar {
+    display: flex;
+    width: 100%;
+}
+
+.navbar-left {
+    align-self: start;
+    align-items: center;
+    display: flex;
+}
+
+.navbar-right {
+    align-self: end;
+    align-items: center;
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#sidebarToggle {
+    display: none;
+    border: 0;
+    background-color: var(--header-background-color);
+    cursor: pointer;
+
+    & svg {
+        fill: var(--header-text-color);
+        vertical-align: middle;
+    }
+
+    @media only screen and (max-width: $breakpoint-sm) {
+        display: inline-block;
+    }
+}
+
+.navbar-brand {
+    margin-left: 5px;
+    vertical-align: middle;
+    display: flex;
+
+    > img {
+        height: 100%;
+        margin: auto;
+        margin-right: 10px;
+    }
+}
+
+.navbar-title-text {
+    vertical-align: middle;
+    font-weight: 600;
+    font-size: 1.25rem;
+    text-decoration: none;
+    color: var(--header-text-color);
+}

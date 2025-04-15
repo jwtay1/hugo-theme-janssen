@@ -1,54 +1,41 @@
-@use "./abstracts" as *;
+@use "./utils" as *;
 
 footer {
-    background-color: var(--footer-color);
-    margin-top: 50px;
-    padding: 20px 30px 30px 30px;
-    color: var(--footer-link-color);
+
+    background-color: var(--footer-background-color);
+    color: var(--footer-text-color);
+    padding: 40px 30px;
+    display: grid;
+    grid-template-rows: 1fr auto;
+
 }
 
-.footer-links-container {
+.footer-link-container {
+
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
 
     @media only screen and (max-width: $breakpoint-sm) {
         grid-template-columns: 1fr;
-    }   
+    }
+
 }
 
-.footer-links {
+.footer-links ul {
+
+    list-style: none;
+    margin-bottom: 20px;
+
+    > li {
+        margin-bottom: 3px;
+    }
     
-    > ul {
-        list-style: none;
-    }
-
-    > ul > li {
-        margin-bottom: 10px;
-        display: block;
-    }
-
-    > ul > li a {
+    > li > a {
         color: var(--footer-link-color);
-    
+
         &:hover {
-            filter: brightness(200%);
+            color: var(--footer-text-color);
         }
-    }  
-}
-
-.footer-h1 {
-    font-size: 1rem;
-    font-weight: 800;
-}
-
-.footer-copyright {
-    padding-top: 30px;
-
-    > p {
-        text-align: center;
     }
+
 }
-
-
-
-

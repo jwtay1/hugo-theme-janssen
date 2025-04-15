@@ -1,41 +1,8 @@
-@use "vendors/normalize";
-@use "./abstracts" as *;
+@use "./utils" as *;
 
-@use "base/base";
-
+@use "./base";
 @use "./layouts";
+@use "./pages";
+@use "./components";
 
-@use "themes/dark";
-@use "themes/light";
-
-@use "components/codeblock";
-
-:root {
-    //Default colors in case browser does not support data-theme
-    --text-color: #000;
-    --background-color: #fff;
-    --link-color: #543fd7;
-    --base-font-size: 16px;
-
-    --switch-height: 20px;
-    --switch-padding: 8px;
-    --switch-width: calc((var(--switch-height) * 2) - var(--switch-padding));
-    --slider-height: calc(var(--switch-height) - var(--switch-padding));
-    --slider-on: calc(var(--switch-height) - var(--switch-padding));    
-}
-
-main {
-    //Display the sidebar
-    display: grid;
-    grid-template-columns: auto 1fr;
-
-    @media only screen and (max-width: $breakpoint-sm) {
-        //Expand the main content to full width
-        grid-template-columns: 1fr;
-    }
-}
-
-//Layout
-.container {
-    width: 100%;
-}
+@use "./themes";

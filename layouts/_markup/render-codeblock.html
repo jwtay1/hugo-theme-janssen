@@ -1,14 +1,13 @@
-<div class="code-block-container">
+<div class="codeblock-container">
+    
     {{ with .Attributes.title }}
-    <div class="code-block-title">
+    <div class="codeblock-title">
         <span>{{ . | markdownify }}</span>
     </div>
     {{ end }}
-    <div class="code-block">
-        <pre><code class="chroma">
+    <pre class="codeblock-code"><code class="chroma">
             {{- with transform.HighlightCodeBlock . "noClasses=false" -}}
             {{ .Inner }}
             {{- end -}}
         </code></pre>
-    </div> 
 </div>

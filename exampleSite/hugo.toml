@@ -2,7 +2,7 @@ baseURL = 'https://example.org/'
 languageCode = 'en-US'
 title = 'My New Hugo Site'
 
-theme = 'hugo-theme-janssen'
+theme = 'hugo-theme-janssen-2'
 themesDir = '../..'
 
 sectionPagesMenu = 'main'
@@ -27,15 +27,19 @@ sectionPagesMenu = 'main'
 
   [[menus.footer1]]
     name = 'Link 1'
-    url = 'https://example.com'
-    
+    url = 'https://example.com'    
     [menus.footer1.params]
       rel = 'external'
 
   [[menus.footer4]]
     name = 'Link 1'
-    url = 'https://example.com'
-    
+    url = 'https://example.com'    
+    [menus.footer4.params]
+      rel = 'external'
+
+  [[menus.footer4]]
+    name = 'Link 2'
+    url = 'https://example.com'    
     [menus.footer4.params]
       rel = 'external'
 

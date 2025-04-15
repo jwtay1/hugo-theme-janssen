@@ -1,0 +1,148 @@
+@use "./utils" as *;
+
+main {
+    display: flex;
+}
+
+.article-container {
+
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    //overflow-x: auto;
+
+    @media only screen and (max-width: $breakpoint-md) {
+        flex-direction: column-reverse;
+        overflow-x: auto;
+    }
+}
+
+.article-main {
+    width: 80%;
+    max-width: 1000px;
+    padding-bottom: 20px;
+    overflow-x: hidden;
+    flex-wrap: 2;
+
+    @media only screen and (max-width: $breakpoint-sm) {
+        width: 100%;
+    }
+}
+
+.article-toc-container {
+    align-self: start;
+    position: sticky;
+    top: 0;
+    border-left: 1px solid var(--secondary-color);
+    margin-top: 10px;
+    min-width: 150px;
+    width: 20%;
+
+    @media only screen and (max-width: $breakpoint-md) {
+        position: relative;
+        display: block;
+        border-left: 0;
+        margin-left: auto;
+        margin-right: auto;
+        width: 95%;
+    }
+}
+
+.article-toc-button {
+
+    >button {
+        display: none;
+        font-size: 1rem;
+        text-align: left;
+        color: var(--text-color);
+
+        @media only screen and (max-width: $breakpoint-md) {
+            display: block;
+            border: 0;
+            padding: 12px 10px;
+            cursor: pointer;
+            background-color: var(--toc-background-color);
+            border-radius: 7px;
+            width: 100%;
+            margin-top: 10px;
+        }
+    }
+
+    &.unfold {
+
+        >button {
+            @media only screen and (max-width: $breakpoint-md) {
+                border-radius: 7px 7px 0 0;
+                border-bottom: 1px solid var(--secondary-color);
+                //transition: border-bottom 0.5s ease;
+            }
+        }
+
+        +.article-toc-content {
+            @media only screen and (max-width: $breakpoint-md) {
+                max-height: 1500px;
+            }
+        }
+    }
+}
+
+.article-toc-content {
+    
+    transition: max-height 0.5s ease-in-out;
+
+    @media only screen and (max-width: $breakpoint-md) {
+        font-size: 1rem;
+        background-color: var(--toc-background-color);
+        overflow: hidden;
+        max-height: 0;
+        margin-bottom: 10px;
+    }
+}
+
+@keyframes slidedown {
+    from {
+        height: 0;
+    }
+
+    to {
+        height: 100%;
+    }
+}
+
+#TableOfContents {
+    padding-left: 10px;
+
+    & ul {
+        list-style: none;
+    }
+
+    & ul li {
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
+    & ul li a {
+        color: var(--text-color);
+        text-decoration: none;
+    }
+
+    //Highlight color
+    & ul li a.active {
+        color: var(--link-color);
+        text-decoration: none;
+
+        &:hover {
+            color: var(--link-active-color);
+        }
+
+        @media only screen and (max-width: $breakpoint-sm) {
+            color: inherit;
+
+        }
+    }
+
+    & ul li ul {
+        padding-left: 20px;
+    }
+
+}

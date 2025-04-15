@@ -1,0 +1,57 @@
+<div class="footer-link-container">
+    <div class="footer-links">
+        {{ with .Site.Menus.footer1 }}
+        {{ with site.Params.footer1_title }}
+        <p class="footer-link-heading">{{ . }}</p>
+        {{ end }}
+        <ul>
+            {{ range . }}
+            <li><a href="{{ .URL }}" {{- with .Params.rel }}{{ if eq . "external" }}target="_blank" {{ end }}{{ end
+                    }}>{{ .Name }}</a></li>
+            {{ end }}
+        </ul>
+        {{ end }}
+    </div>
+    <div class="footer-links">
+        {{ with .Site.Menus.footer2 }}
+        {{ with site.Params.footer2_title }}
+        <p class="footer-link-heading">{{ . }}</p>
+        {{ end }}
+        <ul>
+            {{ range . }}
+            <li><a href="{{ .URL }}" {{- with .Params.rel }}{{ if eq . "external" }}target="_blank" {{ end }}{{ end
+                    }}>{{ .Name }}</a></li>
+            {{ end }}
+        </ul>
+        {{ end }}
+    </div>
+    <div class="footer-links">
+        {{ with .Site.Menus.footer3 }}
+        {{ with site.Params.footer3_title }}
+        <p class="footer-link-heading">{{ . }}</p>
+        {{ end }}
+        <ul>
+            {{ range . }}
+            <li><a href="{{ .URL }}" {{- with .Params.rel }}{{ if eq . "external" }}target="_blank" {{ end }}{{ end
+                    }}>{{ .Name }}</a></li>
+            {{ end }}
+        </ul>
+        {{ end }}
+    </div>
+    <div class="footer-links">
+        {{ with .Site.Menus.footer4 }}
+        {{ with site.Params.footer4_title }}
+        <p class="footer-link-heading">{{ . }}</p>
+        {{ end }}
+        <ul>
+            {{ range . }}
+            <li><a href="{{ .URL }}" {{- with .Params.rel }}{{ if eq . "external" }}target="_blank" {{ end }}{{ end
+                    }}>{{ .Name }}</a></li>
+            {{ end }}
+        </ul>
+        {{ end }}
+    </div>
+</div>
+<div class="footer-bottom">
+    <p class="text-copyright">{{- with site.Params.copyright }}{{ . | markdownify }}{{ end }} Made with <a href="https://gohugo.io" target="_blank">Hugo</a> and <a href="https://github.com/jwtay1/hugo-theme-janssen" target="_blank">Janssen</a>.</p>
+</div>

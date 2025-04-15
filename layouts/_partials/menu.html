@@ -1,0 +1,75 @@
+{{- /*
+Renders a menu for the given menu ID.
+
+@context {page} page The current page.
+@context {string} menuID The menu ID.
+
+@example: {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+*/}}
+
+{{- $page := .page }}
+{{- $menuID := .menuID }}
+
+{{- with index site.Menus $menuID }}
+  <nav>
+    <ul>
+      {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
+    </ul>
+  </nav>
+{{- end }}
+
+{{- define "_partials/inline/menu/walk.html" }}
+  {{- $page := .page }}
+  {{- range .menuEntries }}
+    {{- $attrs := dict "href" .URL }}
+    {{- if $page.IsMenuCurrent .Menu .}}
+      {{- $attrs = merge $attrs (dict "class" "active" "aria-current" "page") }}
+    {{- else if $page.HasMenuCurrent .Menu .}}
+      {{- $attrs = merge $attrs (dict "class" "ancestor" "aria-current" "true") }}
+    {{- end }}
+    {{/* Check if page is a section page or if menu item has children items */}}
+    {{- $hasDependents := or .HasChildren (eq .Page.Kind "section") }}
+    {{- $name := .Name }}
+    {{- with .Identifier }}
+      {{- with T . }}
+        {{- $name = . }}
+      {{- end }}
+    {{- end }}
+    <li>
+      {{/* If the menu item has dependents, create a dropdown button*/}}
+      {{- if $hasDependents -}}
+      <div class="sidebar-dropdown-item {{ if $page.HasMenuCurrent .Menu .}}unfold{{- end -}}">
+        <a
+        {{- range $k, $v := $attrs }}
+          {{- with $v }}
+            {{- printf " %s=%q" $k $v | safeHTMLAttr }}
+          {{- end }}
+        {{- end -}}
+      >{{ $name }}</a>      
+        <button class="sidebar-btn-dropdown" onclick="unfold(this)"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg></button>
+      </div>
+        {{- with .Children }}
+          <ul>
+            {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
+          </ul>
+        {{- else }}
+          {{- if eq .Page.Kind "section" }}
+          <ul>
+            {{- range .Page.RegularPages }}
+              <li><a href="{{ .RelPermalink }}" {{ if (eq $page.Path .Path) }}class="active"{{ end -}}>{{ .Title }}</a></li>
+            {{ end -}}
+          </ul>
+          {{ end -}}
+        {{- end }}
+      {{- else }}
+        <a
+        {{- range $k, $v := $attrs }}
+          {{- with $v }}
+            {{- printf " %s=%q" $k $v | safeHTMLAttr }}
+          {{- end }}
+        {{- end -}}
+      >{{ $name }}</a>
+      {{- end }}
+    </li>
+  {{- end }}
+{{- end }}
