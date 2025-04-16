@@ -2,7 +2,7 @@ baseURL = 'https://example.org/'
 languageCode = 'en-US'
 title = 'My New Hugo Site'
 
-theme = 'hugo-theme-janssen-2'
+theme = 'hugo-theme-janssen'
 themesDir = '../..'
 
 sectionPagesMenu = 'main'
