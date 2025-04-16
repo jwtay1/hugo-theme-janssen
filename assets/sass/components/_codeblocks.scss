@@ -27,10 +27,11 @@
     max-width: 100%;
     min-width: 100px;
     position: relative;
-
+    
     > code {
         font-family: $font-family-mono;
         font-size: 0.8rem;
+        
     }
 
     &:hover {
