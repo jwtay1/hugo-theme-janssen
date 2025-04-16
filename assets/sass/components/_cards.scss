@@ -11,10 +11,11 @@
 
 .card-list {
     padding: 20px;
-    border: 1px solid var(--text-color);
+    border: 1px solid var(--secondary-color);
     border-radius: 20px;
     margin: 30px 15px;
-    background-color: var(--sidebar-active-background-color);
+    background-color: var(--header-background-color);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 5px 0px;
 
     > a {
         color: var(--text-color);
