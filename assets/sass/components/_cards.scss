@@ -1,0 +1,31 @@
+@use "./utils" as *;
+
+.card-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    @media only screen and (max-width: $breakpoint-sm) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.card-list {
+    padding: 20px;
+    border: 1px solid var(--text-color);
+    border-radius: 20px;
+    margin: 30px 15px;
+    background-color: var(--sidebar-active-background-color);
+
+    > a {
+        color: var(--text-color);
+    }
+
+    &:hover {
+        border: 1px solid var(--link-active-color);
+    }
+}
+
+.card-list-title {
+    padding: none;
+    margin-top: 0 !important;
+}

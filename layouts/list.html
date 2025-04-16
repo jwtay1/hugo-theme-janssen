@@ -1,8 +1,13 @@
 {{ define "main" }}
   <h1>{{ .Title }}</h1>
   {{ .Content }}
+  <div class="card-container">
   {{ range .Pages }}
-    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-    {{ .Summary | truncate 10 }}
+    <div class="card-list">
+      <a href="{{ .RelPermalink }}"><h2 class="card-list-title">{{ .LinkTitle }}</h2>
+      {{ .Summary | truncate 10 }}
+      </a>
+    </div>
   {{ end }}
+  </div>
 {{ end }}
