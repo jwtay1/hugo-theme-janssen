@@ -1,3 +1,0 @@
----
-title: Parent page
----

@@ -1,6 +1,5 @@
 ---
 title: Code blocks
-menus: "main"
 ---
 
 The theme supports syntax highlighting using the Chroma package. The theme implements a "copy" button on each code block, as well as changes the color of the block depending on the theme.

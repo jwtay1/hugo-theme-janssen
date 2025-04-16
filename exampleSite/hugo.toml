@@ -1,11 +1,9 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-US'
-title = 'My New Hugo Site'
+title = 'Janssen'
 
 theme = 'hugo-theme-janssen'
 themesDir = '../..'
-
-sectionPagesMenu = 'main'
 
 [params]
   copyright = "Copyright &copy; 2025 This Person, Inc."
@@ -23,7 +21,12 @@ sectionPagesMenu = 'main'
   [[menus.main]]
   name = 'Features'
   pageRef = '/features'
-  weight = 12
+  weight = 20
+
+  [[menus.main]]
+  name = 'Configuring the theme'
+  pageRef = '/configuration'
+  weight = 30
 
   [[menus.footer1]]
     name = 'Link 1'
@@ -45,5 +48,5 @@ sectionPagesMenu = 'main'
 
 [module]
   [module.hugoVersion]
-    extended = false
-    min = "0.116.0"
+    extended = true
+    min = "0.146.0"

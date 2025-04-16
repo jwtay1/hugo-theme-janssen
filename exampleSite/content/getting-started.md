@@ -4,7 +4,7 @@ title: Getting started
 
 ## Prerequisites
 
-* [Hugo Extended](https://gohugo.io/installation/windows/) v0.145 or higher
+* [Hugo Extended](https://gohugo.io/installation/windows/) v0.146 or higher
 * [Dart Sass](https://sass-lang.com/dart-sass/) v1.86.3 or higher
 
 ## Installing the theme
@@ -33,7 +33,7 @@ title: Getting started
 
 ### Direct download
 
-1. Download the files from the repo and extract it in your site's theme folder.
+1. Download the files from the repo and extract it in your site's ``theme`` folder.
 
 2. Edit your site's configuration (e.g., ``hugo.toml``):
    ```toml
