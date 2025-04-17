@@ -1,55 +1,15 @@
 <div class="footer-link-container">
     <div class="footer-links">
-        {{ with .Site.Menus.footer1 }}
-        {{ with site.Params.footer1_title }}
-        <p class="footer-link-heading">{{ . }}</p>
-        {{ end }}
-        <ul>
-            {{ range . }}
-            <li><a href="{{ .URL }}" {{- with .Params.rel }}{{ if eq . "external" }}target="_blank" {{ end }}{{ end
-                    }}>{{ .Name }}</a></li>
-            {{ end }}
-        </ul>
-        {{ end }}
+        {{ partial "footer_menu.html" (dict "menuID" "footer1" "page" .) }}
     </div>
     <div class="footer-links">
-        {{ with .Site.Menus.footer2 }}
-        {{ with site.Params.footer2_title }}
-        <p class="footer-link-heading">{{ . }}</p>
-        {{ end }}
-        <ul>
-            {{ range . }}
-            <li><a href="{{ .URL }}" {{- with .Params.rel }}{{ if eq . "external" }}target="_blank" {{ end }}{{ end
-                    }}>{{ .Name }}</a></li>
-            {{ end }}
-        </ul>
-        {{ end }}
+        {{ partial "footer_menu.html" (dict "menuID" "footer2" "page" .) }}
     </div>
     <div class="footer-links">
-        {{ with .Site.Menus.footer3 }}
-        {{ with site.Params.footer3_title }}
-        <p class="footer-link-heading">{{ . }}</p>
-        {{ end }}
-        <ul>
-            {{ range . }}
-            <li><a href="{{ .URL }}" {{- with .Params.rel }}{{ if eq . "external" }}target="_blank" {{ end }}{{ end
-                    }}>{{ .Name }}</a></li>
-            {{ end }}
-        </ul>
-        {{ end }}
+        {{ partial "footer_menu.html" (dict "menuID" "footer3" "page" .) }}
     </div>
     <div class="footer-links">
-        {{ with .Site.Menus.footer4 }}
-        {{ with site.Params.footer4_title }}
-        <p class="footer-link-heading">{{ . }}</p>
-        {{ end }}
-        <ul>
-            {{ range . }}
-            <li><a href="{{ .URL }}" {{- with .Params.rel }}{{ if eq . "external" }}target="_blank" {{ end }}{{ end
-                    }}>{{ .Name }}</a></li>
-            {{ end }}
-        </ul>
-        {{ end }}
+        {{ partial "footer_menu.html" (dict "menuID" "footer4" "page" .) }}
     </div>
 </div>
 <div class="footer-bottom">

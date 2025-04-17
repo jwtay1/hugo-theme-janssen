@@ -7,10 +7,10 @@ themesDir = '../..'
 
 [params]
   copyright = "Copyright &copy; 2025 This Person, Inc."
-  footer1_title = "Footer 1"
+  footer1_title = "Learn"
   footer2_title = "Footer 2"
   footer3_title = "Footer 3"
-  footer4_title = "Footer 4"
+  footer4_title = "Links"
 
 [menus]
   [[menus.main]]
@@ -34,22 +34,33 @@ themesDir = '../..'
   weight = 40
 
   [[menus.footer1]]
-    name = 'Link 1'
-    url = 'https://example.com'    
-    [menus.footer1.params]
-      rel = 'external'
+    name = 'Learn'
+  
+  [[menus.footer1]]
+    parent = 'Learn'
+    name = 'Getting started'
+    pageRef = '/getting-started'
+    weight = 1
+
+  [[menus.footer1]]
+    parent = 'Learn'
+    name = 'Features'
+    pageRef = '/features'
+    weight = 2
+
+  [[menus.footer1]]
+    parent = 'Learn'
+    name = 'Configuration'
+    pageRef = '/configuration'
+    weight = 3
 
   [[menus.footer4]]
-    name = 'Link 1'
-    url = 'https://example.com'    
-    [menus.footer4.params]
-      rel = 'external'
+    name = 'Links'
 
   [[menus.footer4]]
-    name = 'Link 2'
-    url = 'https://example.com'    
-    [menus.footer4.params]
-      rel = 'external'
+    parent = 'Links'
+    name = 'GitHub'
+    url = 'https://github.com/jwtay1/hugo-theme-janssen'    
 
 [module]
   [module.hugoVersion]

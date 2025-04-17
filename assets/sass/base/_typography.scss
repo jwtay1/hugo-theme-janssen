@@ -9,7 +9,7 @@ body {
 a {
     text-decoration: none;
     color: var(--link-color);
-    
+
     &:hover {
         color: var(--link-active-color);
     }
@@ -19,12 +19,10 @@ a {
     font-size: 0.8rem;
     text-align: center;
     color: var(--copyright-text-color);
-}
 
-.footer-link-heading {
-    font-weight: 600;
-    color: var(--footer-text-color);
-    margin-bottom: 7px;
+    @media only screen and (max-width: $breakpoint-sm) {
+        text-align: left;
+    }
 }
 
 .text-last-updated {
