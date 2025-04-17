@@ -1,0 +1,47 @@
+.breadcrumb {   
+
+    vertical-align: middle;
+
+    > ol {
+        margin: 10px 0;
+        
+        & li {
+            display: inline-block;
+            padding: 0;
+            margin: 0;
+            
+            vertical-align: middle;
+        }
+        
+        & li:not(:last-child)::after {
+            color: var(--text-color);
+            display: inline-block;
+            content: url('/chevron_right.svg');
+            padding: 0 10px;
+
+        }
+    }
+
+    //Home icon
+    & svg {
+        fill: var(--text-color);
+        vertical-align: middle;
+
+        &:hover {
+            fill: var(--link-color);
+        }
+    }
+
+    & a {
+        color: var(--text-color);
+
+        &:hover {
+            color: var(--link-color);
+        }
+
+        &.active {
+            color: var(--link-active-color);
+        }
+    }
+
+}

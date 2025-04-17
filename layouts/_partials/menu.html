@@ -29,7 +29,7 @@ Renders a menu for the given menu ID.
     {{- end }}
     {{/* Check if page is a section page or if menu item has children items */}}
     {{/* Additionally, check if menu item points to an existing page and if it's a section page, make sure it has more than 1 child */}}
-    {{- $hasDependents := and (not (eq .URL "")) (or .HasChildren (and (eq .Page.Kind "section") (gt .Page.RegularPages.Len 1) )) }}
+    {{- $hasDependents := and (not (eq .URL "")) (or .HasChildren (and (eq .Page.Kind "section") (gt .Page.RegularPages.Len 0) )) }}
     {{- $name := .Name }}
     {{- with .Identifier }}
       {{- with T . }}

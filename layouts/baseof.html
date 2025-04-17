@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}">
+
 <head>
   {{ partial "head.html" . }}
 </head>
+
 <body>
   <header>
     {{ partial "header.html" . }}
@@ -19,20 +21,24 @@
       <div class="article-main">
         {{ block "main" . }}{{ end }}
       </div>
-      {{ if in .TableOfContents "li" }}
       <div class="article-toc-container">
-        <div class="article-toc-button">
-          <button onclick="unfold(this)">On this page</button>
-        </div>
-        <div class="article-toc-content">
-          {{ .TableOfContents }}
-        </div>
+        {{- $page := . }}
+        {{ if not .Params.hidetoc }}
+          {{ if in $page.TableOfContents "li" }}
+          <div class="article-toc-button">
+            <button onclick="unfold(this)">On this page</button>
+          </div>
+          <div class="article-toc-content">
+            {{ $page.TableOfContents }}
+          </div>
+          {{ end }}
+        {{ end }}
       </div>
-      {{ end }}
     </div>
   </main>
   <footer>
     {{ partial "footer.html" . }}
   </footer>
 </body>
+
 </html>

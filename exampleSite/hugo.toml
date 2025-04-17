@@ -24,9 +24,14 @@ themesDir = '../..'
   weight = 20
 
   [[menus.main]]
+  name = 'Table of Contents'
+  pageRef = '/tableofcontents'
+  weight = 30
+
+  [[menus.main]]
   name = 'Configuring the theme'
   pageRef = '/configuration'
-  weight = 30
+  weight = 40
 
   [[menus.footer1]]
     name = 'Link 1'
