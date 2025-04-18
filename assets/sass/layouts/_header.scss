@@ -6,6 +6,10 @@ header {
     color: var(--header-text-color);
     display: flex;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 5px 0px;
+
+    @media only screen and (max-width: $breakpoint-sm) {
+        padding: 10px 10px;        
+    }
 }
 
 .navbar {

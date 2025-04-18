@@ -19,7 +19,16 @@ themesDir = '../..'
   pageRef = '/docs'
   weight = 1
 
+  [[menus.top]]
+  name = 'Getting started'
+  pageRef = '/getting-started'
+  weight = 2
 
+  [[menus.top]]
+  name = 'Features'
+  pageRef = '/features'
+  weight = 3
+  
   [[menus.main]]
   name = 'Getting started'
   pageRef = '/getting-started'

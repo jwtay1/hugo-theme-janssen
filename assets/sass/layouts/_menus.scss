@@ -1,14 +1,21 @@
+@use "./utils" as *;
+
 .menu-top {
 
     margin-left: 20px;
     vertical-align: baseline;
 
-    > ul {
+    >nav>ul {
         list-style-type: none;
 
-        > li a {
+        >li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        >li a {
             color: var(--text-color);
-            font-weight: 600;
+            font-weight: 500;
             font-size: 1rem;
 
             &.active {
@@ -20,6 +27,80 @@
             }
         }
 
+    }
+
+    @media only screen and (max-width: $breakpoint-sm) {
+
+        background-color: var(--sidebar-background-color);
+        //padding: 20px 10px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 60%;
+        height: 100%;
+        z-index: 20;
+        margin: 0;
+        border-right: 1px solid var(--secondary-color);
+        max-width: 0px;
+        overflow: hidden;
+
+        > nav {
+            padding: 20px 10px;
+        }
+
+        >nav>ul>li {
+            width: 100%;
+            display: block;
+
+            & a {
+                text-decoration: none;
+                color: var(--text-color);
+                display: block;
+                width: 100%;
+                padding: 10px 10px;
+            }
+
+            &:hover {
+                background-color: var(--sidebar-active-background-color);
+            }
+        }
+
+    }
+
+}
+
+.menu-top.unfold {
+
+    @media only screen and (max-width: $breakpoint-sm) {
+        max-width: 800px;
+    }
+
+}
+
+.main-menu-back {
+    display: none;
+
+    @media only screen and (max-width: $breakpoint-sm) {
+        display: block;
+        padding: 10px 5px;
+
+        >a {
+            vertical-align: middle;
+            display: flex;
+            color: var(--text-color);
+
+            >svg {
+                vertical-align: middle;
+            }
+
+            &:hover {
+                color: var(--primary-color-lighter);
+
+                >svg {
+                    fill: var(--primary-color-lighter);
+                }
+            }
+        }
     }
 
 }

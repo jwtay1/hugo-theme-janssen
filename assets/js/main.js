@@ -92,6 +92,12 @@ window.onload = () => {
             }
             else {
                 window.removeEventListener("click", handleClick, true);
+
+                var mainmenu = document.getElementById("main-menu");
+                console.log(mainmenu)
+                if (mainmenu.parentElement.classList.contains('unfold')) {
+                    mainmenu.parentElement.classList.remove('unfold');
+                }
             }
         }
     }
@@ -105,13 +111,16 @@ window.onload = () => {
 
     window.unfold = function unfold(obj) {
 
+        if (typeof(obj) === "string") {
+            obj = document.getElementById(obj);
+        }
+
         obj.parentElement.classList.toggle("unfold");
 
     }
 
     //Add a copy button to code blocks
     let codeBlocks = document.querySelectorAll('pre code');
-    console.log(codeBlocks);
 
     codeBlocks.forEach(codeBlock => {
         let button = document.createElement('button');
