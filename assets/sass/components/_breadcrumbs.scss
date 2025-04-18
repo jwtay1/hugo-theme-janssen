@@ -18,6 +18,7 @@
             display: inline-block;
             content: url('/chevron_right.svg');
             padding: 0 10px;
+            vertical-align: middle;
 
         }
     }
@@ -28,19 +29,20 @@
         vertical-align: middle;
 
         &:hover {
-            fill: var(--link-color);
+            fill: var(--primary-color);
         }
     }
 
     & a {
         color: var(--text-color);
+        vertical-align: middle;
 
         &:hover {
-            color: var(--link-color);
+            color: var(--primary-color);
         }
 
         &.active {
-            color: var(--link-active-color);
+            color: var(--primary-color-lighter);
         }
     }
 

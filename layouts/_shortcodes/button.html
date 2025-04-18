@@ -1,0 +1,16 @@
+{{/* 
+Renders a link as a button
+
+@string url URL to link to
+@string text Text to display
+*/}}
+
+{{ $url := .Get "url"}}
+{{ if not (strings.Contains $url "http") }}
+    {{ $page := site.GetPage $url }}
+    {{ $url = $page.RelPermalink }}
+{{ end }}
+
+{{ $text := .Get "text"}}
+
+<a href="{{ $url }}" class="button">{{ $text }}</a>

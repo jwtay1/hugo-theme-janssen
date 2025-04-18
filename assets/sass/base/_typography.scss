@@ -8,10 +8,10 @@ body {
 
 a {
     text-decoration: none;
-    color: var(--link-color);
+    color: var(--primary-color);
 
     &:hover {
-        color: var(--link-active-color);
+        color: var(--primary-color-lighter);
     }
 }
 

@@ -1,8 +1,5 @@
 :root[data-theme='dark'] {
 
-
-
-
     --header-background-color: #2c2c2c;
     --header-text-color: #F7F8F8;
     --background-color: #1b1b1d;
@@ -10,6 +7,9 @@
     --link-color: #7783f6;
     --link-active-color: #c4c9f8;
 
+    //Buttons and links
+    --primary-color: #8848f0;
+    --primary-color-lighter: #8e47ff;
     //Borders and other UI elements
     --secondary-color:#565656;
 

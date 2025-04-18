@@ -1,0 +1,53 @@
+{{/* 
+Renders a hero element
+
+@string image Image to display as background.
+@string bgcolor Background color
+*/}}
+{{- $obj := . }}
+{{- $style := (dict "background-color" "rgba(0, 0, 0, 0.5)") }}
+
+{{- with .Get "image" }}
+    {{- $img := resources.GetMatch (printf "images/%s" .) -}}
+    {{ $style = merge $style (dict "background-image" (printf "url(%q)" $img.RelPermalink)) }}
+{{ end -}}
+
+{{ with .Get "bgcolor" }}
+    {{ $style = merge $style (dict "background-color" .) }}
+{{ end }}
+
+{{/* Combine string together */}}
+{{ $str := "style='" }}
+{{- range $attr, $val := $style }}
+    {{- $str = (printf "%s %s: %s;" $str $attr $val | safeHTMLAttr) }}
+{{ end }}
+{{ $str = printf "%s'" $str }}
+
+<div class="hero-container" {{ printf "%s" $str | safeHTMLAttr }}>
+    <div class="hero-inner">
+        {{ .Inner | markdownify | safeHTML }}
+
+        <div class="hero-button-group">
+            {{- with .Get "btn1_href" }}
+                {{- partial "inline/hero/button.html" (dict "href" . "value" ($obj.Get "btn1_text")) }}
+            {{ end -}}
+            {{- with .Get "btn2_href" }}
+                {{- partial "inline/hero/button.html" (dict "href" . "value" ($obj.Get "btn2_text")) }} 
+            {{ end -}}
+        </div>
+
+    </div>
+</div>
+
+{{ define "_partials/inline/hero/button.html" }}
+
+    {{ $url := .href }}
+    {{ if not (strings.Contains .href "http") }}
+        {{ $page := site.GetPage .href }}
+        {{ $url = $page.RelPermalink }}
+        <a href="{{ $url }}" class="button">{{ .value }}</a>
+    {{ else }}
+        <a href="{{ $url }}" class="button" target="_blank">{{ .value }}</a>
+    {{ end }}    
+
+{{ end }}

@@ -1,0 +1,25 @@
+.menu-top {
+
+    margin-left: 20px;
+    vertical-align: baseline;
+
+    > ul {
+        list-style-type: none;
+
+        > li a {
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 1rem;
+
+            &.active {
+                color: var(--primary-color);
+            }
+
+            &:hover {
+                color: var(--primary-color-lighter);
+            }
+        }
+
+    }
+
+}

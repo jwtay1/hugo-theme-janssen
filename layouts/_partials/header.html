@@ -7,6 +7,7 @@
             {{ end -}}
             <span class="navbar-title-text">{{ site.Title }}</span>
         </a>
+        {{ partial "menus/top.html" (dict "menuID" "top" "page" .) }}
     </div>
     <div class="navbar-right">
         <div class="search-bar">

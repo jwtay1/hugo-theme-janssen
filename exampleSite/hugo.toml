@@ -13,6 +13,13 @@ themesDir = '../..'
   footer4_title = "Links"
 
 [menus]
+
+  [[menus.top]]
+  name = 'Docs'
+  pageRef = '/docs'
+  weight = 1
+
+
   [[menus.main]]
   name = 'Getting started'
   pageRef = '/getting-started'

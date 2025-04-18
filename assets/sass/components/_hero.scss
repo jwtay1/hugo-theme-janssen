@@ -1,0 +1,25 @@
+
+.hero-container {
+    height: 50vh;
+    min-height: 100px;
+    width: 100%;
+    padding: 50px 10px;
+    margin: 0;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    background-repeat: no-repeat;
+    background-blend-mode: darken;
+    background-size: cover;
+    display: flex;
+}
+
+
+.hero-inner {
+    margin: auto;
+    text-align: center;
+    color: whitesmoke
+}
+
+.hero-button-group {
+    margin: 30px 0;
+}
