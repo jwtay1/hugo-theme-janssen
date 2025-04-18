@@ -81,23 +81,36 @@ window.onload = () => {
 
     window.toggleSidebar = function toggleSidebar() {
 
-        //Get sidebar object
         var sidebar = document.getElementById("sidebar");
+        //Get sidebar object
+        var sidebarmenu = document.getElementById("sidebar-menu");
 
-        if (sidebar !== null) {
-            sidebar.classList.toggle('show');
+        //Get main menu
+        var mainmenu = document.getElementById("main-menu");
 
-            if (sidebar.classList.contains('show')) {
+        if (sidebarmenu !== null) {
+            sidebarmenu.parentElement.classList.toggle('show');
+
+            if (sidebarmenu.parentElement.classList.contains('show')) {
                 window.addEventListener("click", handleClick, true);
             }
             else {
                 window.removeEventListener("click", handleClick, true);
-
-                var mainmenu = document.getElementById("main-menu");
-                console.log(mainmenu)
                 if (mainmenu.parentElement.classList.contains('unfold')) {
                     mainmenu.parentElement.classList.remove('unfold');
                 }
+            }
+        }
+        else if (mainmenu !== null) {
+
+            mainmenu.parentElement.classList.toggle('unfold');
+            sidebar.classList.toggle('show');
+
+            if (mainmenu.parentElement.classList.contains('unfold')) {
+                window.addEventListener("click", handleClick, true);
+            }
+            else {
+                window.removeEventListener("click", handleClick, true);
             }
         }
     }
