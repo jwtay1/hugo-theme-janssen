@@ -10,17 +10,14 @@
     {{ partial "header.html" . }}
   </header>
   <main>
+    {{- if not .IsHome }}
     <div id="sidebar" class="sidebar">
       {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
-      <!--
-      <div class="sidebar-bg">
-      </div>
-    -->
     </div>
     <div class="article-container">
       <div class="article-main">
         {{ block "main" . }}{{ end }}
-      </div>
+      </div>      
       <div class="article-toc-container">
         {{- $page := . }}
         {{ if not .Params.hidetoc }}
@@ -35,10 +32,14 @@
         {{ end }}
       </div>
     </div>
+    {{- else }}
+    {{ block "main" . }}{{ end }}
+    {{- end }}
   </main>
   <footer>
     {{ partial "footer.html" . }}
   </footer>
+  {{ $js := resources.GetMatch "js/search.js" }}
+  <script src="{{ $js.RelPermalink }}"></script>
 </body>
-
 </html>
