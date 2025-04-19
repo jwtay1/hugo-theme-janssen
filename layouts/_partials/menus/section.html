@@ -7,9 +7,33 @@ Renders a menu for a given section
 @example: {{ partial "menus/section.html" (dict "section" "docs") }}
 */}}
 
-{{ $page := . }}
+{{ $page := .page }}
+{{ $section := $page.FirstSection }}
+
+{{- with $section.Pages }}
 <nav id="sidebar-menu">
-
-
+    <ul>
+        {{ partial "inline/menu/section/walk.html" (dict "pages" .)}}        
+    </ul>
 </nav>
+{{ end -}}
 
+{{ define "_partials/inline/menu/section/walk.html" }}
+
+{{- range .pages.ByWeight }}
+<li><a href='{{ .RelPermalink }}'>{{ .Title }}</a>
+    {{ if .IsSection }}
+        <ul>
+            {{ with .Pages }}
+                {{ partial "inline/menu/section/walk.html" (dict "pages" .)}}
+            {{ end }}
+        </ul>
+    {{ end }}
+</li>
+{{ end }}
+
+{{ end }}
+
+{{/*
+{{ partial "menu/section/walk.html" (dict "pages" .)}}
+ */}}
