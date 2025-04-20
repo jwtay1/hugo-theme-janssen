@@ -1,15 +1,17 @@
 {{ define "main" }}
-  {{ partial "breadcrumbs.html" . }}
-  <h1>{{ .Title }}</h1>
+  <div class="sidebar"></div>
+  <div class="article-main">
+    {{ partial "breadcrumbs.html" . }}
+    <h1>{{ .Title }}</h1>
 
-  {{ .Content }}
-  {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+    {{ .Content }}
+    {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
 
 
-  <p class="text-last-updated">
-  {{ $dateMachine := .Lastmod  | time.Format "2006-01-02T15:04:05-07:00" }}
-  {{ $dateHuman := .Lastmod  | time.Format ":date_medium" }}
-  Last updated: <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
-  </p>
-
+    <p class="text-last-updated">
+    {{ $dateMachine := .Lastmod  | time.Format "2006-01-02T15:04:05-07:00" }}
+    {{ $dateHuman := .Lastmod  | time.Format ":date_medium" }}
+    Last updated: <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+    </p>
+  </div>
 {{ end }}

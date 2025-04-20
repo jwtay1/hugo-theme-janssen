@@ -2,38 +2,55 @@
 Renders a menu for a given section
 
 @context {page} page The current page.
-@context {string} menuID The menu ID.
 
-@example: {{ partial "menus/section.html" (dict "section" "docs") }}
+@example: {{ partial "menus/section.html" (dict "page" .) }}
 */}}
-
 {{ $page := .page }}
-{{ $section := $page.FirstSection }}
-
+{{ $section := .page.FirstSection }}
 {{- with $section.Pages }}
 <nav id="sidebar-menu">
+    <div class="main-menu-back">
+        <a href="#" onclick="unfold('main-menu')"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/></svg> Main menu</a>
+    </div>
     <ul>
-        {{ partial "inline/menu/section/walk.html" (dict "pages" .)}}        
+        {{- partial "inline/menu/section/walk.html" (dict "pages" . "page" $page) -}}
     </ul>
 </nav>
 {{ end -}}
 
-{{ define "_partials/inline/menu/section/walk.html" }}
+{{- /*
+Renders a menu for a given section
 
+@context {page} pages List of pages
+*/}}
+{{ define "_partials/inline/menu/section/walk.html" }}
+{{- $page := .page }}
 {{- range .pages.ByWeight }}
-<li><a href='{{ .RelPermalink }}'>{{ .Title }}</a>
-    {{ if .IsSection }}
+    <li>
+        {{- $curr := . }}
+    {{- with .Pages }}
+        <div class="sidebar-dropdown-item {{ if ($curr.IsAncestor $page) }}unfold{{ end }}">
+            <a href='{{ $curr.RelPermalink }}' 
+            {{- if (eq $page.RelPermalink $curr.RelPermalink) }}
+                class="active"
+            {{ else if ($curr.IsAncestor $page) }}
+                class="ancestor"
+            {{ end -}}
+            >{{ $curr.Title }}</a>
+            <button class="sidebar-btn-dropdown" onclick="unfold(this)"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg></button>
+        </div>
         <ul>
-            {{ with .Pages }}
-                {{ partial "inline/menu/section/walk.html" (dict "pages" .)}}
-            {{ end }}
+            {{ partial "inline/menu/section/walk.html" (dict "pages" . "page" $page ) }}
         </ul>
-    {{ end }}
+    {{ else }}
+        <a href='{{ .RelPermalink }}' 
+        {{- if (eq page.RelPermalink .RelPermalink) }}
+            class="active"
+        {{ else if (.IsAncestor $page) }}
+            class="ancestor"
+        {{ end -}}
+        >{{ .Title }}</a>
+    {{ end -}}
 </li>
 {{ end }}
-
 {{ end }}
-
-{{/*
-{{ partial "menu/section/walk.html" (dict "pages" .)}}
- */}}

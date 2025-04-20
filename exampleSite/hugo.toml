@@ -20,15 +20,10 @@ themesDir = '../..'
   weight = 1
 
   [[menus.top]]
-  name = 'Getting started'
-  pageRef = '/getting-started'
+  name = 'Page'
+  pageRef = '/testpage'
   weight = 2
-
-  [[menus.top]]
-  name = 'Features'
-  pageRef = '/features'
-  weight = 3
-  
+ 
   [[menus.main]]
   name = 'Getting started'
   pageRef = '/getting-started'
@@ -55,19 +50,19 @@ themesDir = '../..'
   [[menus.footer1]]
     parent = 'Learn'
     name = 'Getting started'
-    pageRef = '/getting-started'
+    pageRef = '/docs/getting-started'
     weight = 1
 
   [[menus.footer1]]
     parent = 'Learn'
     name = 'Features'
-    pageRef = '/features'
+    pageRef = '/docs/features'
     weight = 2
 
   [[menus.footer1]]
     parent = 'Learn'
     name = 'Configuration'
-    pageRef = '/configuration'
+    pageRef = '/docs/configuration'
     weight = 3
 
   [[menus.footer4]]

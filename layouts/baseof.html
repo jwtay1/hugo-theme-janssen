@@ -10,33 +10,7 @@
     {{ partial "header.html" . }}
   </header>
   <main>
-    {{- if not .IsHome }}
-    <div id="sidebar" class="sidebar">
-      {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
-    </div>
-    <div class="article-container">
-      <div class="article-main">
-        {{ block "main" . }}{{ end }}
-      </div>      
-      <div class="article-toc-container">
-        {{- $page := . }}
-        {{ if not .Params.hidetoc }}
-          {{ if in $page.TableOfContents "li" }}
-          <div class="article-toc-button">
-            <button onclick="unfold(this)">On this page</button>
-          </div>
-          <div class="article-toc-content">
-            {{ $page.TableOfContents }}
-          </div>
-          {{ end }}
-        {{ end }}
-      </div>
-    </div>
-    {{- else }}
-    <div id="sidebar" class="sidebar">
-    </div>
     {{ block "main" . }}{{ end }}
-    {{- end }}
   </main>
   <footer>
     {{ partial "footer.html" . }}

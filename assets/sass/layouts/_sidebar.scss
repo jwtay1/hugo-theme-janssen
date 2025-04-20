@@ -24,7 +24,7 @@
         animation: 0.25s fadein;
 
         > nav {
-            max-width: 60%;
+            max-width: 70%;
             animation: 0.3s slidein;
         }
     }
@@ -50,7 +50,7 @@
     to { width: 60%; }
 }
 
-.sidebar nav>ul>li {
+.sidebar nav > ul > li {
 
     & a {
         text-decoration: none;
@@ -64,7 +64,7 @@
         }
     }
 
-    > ul {
+    & ul {
         list-style: none;
         padding-left: 15px;
     }
@@ -90,7 +90,7 @@
     }
 
     &.unfold > button > svg {
-        transform: rotate(-180deg);
+        transform: rotate(90deg);
     }
 
     &:hover {
@@ -120,7 +120,7 @@
     > svg {
         fill: var(--text-color);        
         vertical-align: middle;
-        transition: transform 0.5s ease;
+        transition: transform 0.3s ease;
     }
 
     &:hover {

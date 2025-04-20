@@ -6,16 +6,16 @@
     <div class="article-main">
         {{ partial "breadcrumbs.html" . }}
         <h1>{{ .Title }}</h1>
+      
         {{ .Content }}
-        <div class="card-container">
-        {{ range .Pages }}
-            <div class="card-list">
-            <a href="{{ .RelPermalink }}"><h2 class="card-list-title">{{ .LinkTitle }}</h2>
-            {{ .Summary | truncate 10 }}
-            </a>
-            </div>
-        {{ end }}
-        </div>
+        {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+      
+      
+        <p class="text-last-updated">
+        {{ $dateMachine := .Lastmod  | time.Format "2006-01-02T15:04:05-07:00" }}
+        {{ $dateHuman := .Lastmod  | time.Format ":date_medium" }}
+        Last updated: <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+        </p>
     </div>
     <div class="article-toc-container">
         {{- $page := . }}

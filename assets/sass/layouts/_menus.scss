@@ -36,13 +36,14 @@
         position: fixed;
         top: 0;
         left: 0;
-        width: 60%;
+        width: 70%;
         height: 100%;
         z-index: 20;
         margin: 0;
         border-right: 1px solid var(--secondary-color);
         max-width: 0px;
         overflow: hidden;
+        transition: max-width 0.5s ease;
 
         > nav {
             padding: 20px 10px;
@@ -91,6 +92,7 @@
 
             >svg {
                 vertical-align: middle;
+                fill: var(--text-color);
             }
 
             &:hover {
