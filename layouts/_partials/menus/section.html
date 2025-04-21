@@ -8,8 +8,8 @@ Renders a menu for a given section
 {{ $page := .page }}
 {{ $section := .page.FirstSection }}
 {{- with $section.Pages }}
-<nav id="sidebar-menu">
-    <div class="main-menu-back">
+<nav class="section-menu">
+    <div class="main-menu-back" id="sidebar-menu">
         <a href="#" onclick="unfold('main-menu')"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/></svg> Main menu</a>
     </div>
     <ul>

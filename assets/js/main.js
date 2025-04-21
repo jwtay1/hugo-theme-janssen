@@ -17,7 +17,7 @@ else {
 }
 
 //Set the data-theme of the page
-if (currentTheme) {    
+if (currentTheme) {
     document.documentElement.setAttribute('data-theme', currentTheme);
     localStorage.setItem('theme', currentTheme);
 }
@@ -79,6 +79,51 @@ window.addEventListener('DOMContentLoaded', () => {
 
 window.onload = () => {
 
+    window.toggleMenu = function openMenu() {
+
+        const sidebarBackground = document.getElementById("sidebar-background");
+        const sectionMenu = document.getElementById("sidebar-menu");
+        const mainMenu = document.getElementById("main-menu");
+
+        //If there is a section menu, then open it
+        if (sectionMenu !== null) {
+            sectionMenu.parentElement.classList.add("show");
+        }
+        //If not, open the main manu
+        else {
+            mainMenu.parentElement.classList.add("unfold");
+        }
+
+        //Also open the background menu
+        sidebarBackground.classList.add("show");
+
+        //Add an EventListener to close the menu on click
+        window.addEventListener("click", closeMenu, false);
+    }
+
+    function closeMenu(event) {
+
+        const sidebarBackground = document.getElementById("sidebar-background");
+        const sectionMenu = document.getElementById("sidebar-menu");
+        const mainMenu = document.getElementById("main-menu");
+
+        if (event.target.id === "sidebar-background") {
+
+            //Close all the menus
+            if (sectionMenu !== null) {
+                if (sectionMenu.parentElement.classList.contains("show")) {
+                    sectionMenu.parentElement.classList.remove("show");
+                }
+            }
+            if (mainMenu.parentElement.classList.contains("unfold")) {
+                mainMenu.parentElement.classList.remove("unfold");
+            }        
+        
+            sidebarBackground.classList.remove("show");
+            window.removeEventListener("click", handleClick_2, false);
+        }
+    }
+
     window.toggleSidebar = function toggleSidebar() {
 
         var sidebar = document.getElementById("sidebar");
@@ -124,7 +169,7 @@ window.onload = () => {
 
     window.unfold = function unfold(obj) {
 
-        if (typeof(obj) === "string") {
+        if (typeof (obj) === "string") {
             obj = document.getElementById(obj);
         }
 

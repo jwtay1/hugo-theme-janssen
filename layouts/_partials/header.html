@@ -1,6 +1,6 @@
 <nav aria-label="top-navigation" class="navbar">
     <div class="navbar-left">
-        <button id="sidebarToggle" onclick="toggleSidebar()"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M148.08-261.08v-55.96h663.84v55.96H148.08Zm0-191.34v-55.96h663.84v55.96H148.08Zm0-191.35v-55.96h663.84v55.96H148.08Z"/></svg></button>
+        <button id="sidebarToggle" onclick="toggleMenu()"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M148.08-261.08v-55.96h663.84v55.96H148.08Zm0-191.34v-55.96h663.84v55.96H148.08Zm0-191.35v-55.96h663.84v55.96H148.08Z"/></svg></button>
         <a class="navbar-brand" href="{{ .Site.BaseURL }}">
             {{- with resources.GetMatch "images/logo*" }}
                 <img src="{{ .RelPermalink }}">
