@@ -1,7 +1,9 @@
+@use "./utils" as *;
 
 .hero-container {
-    height: 50vh;
-    min-height: 100px;
+    //height: 50vh;
+    aspect-ratio: 3 / 2;
+    max-height: 500px;
     width: 100%;
     padding: 50px 10px;
     margin: 0;
@@ -11,6 +13,7 @@
     background-blend-mode: darken;
     background-size: cover;
     display: flex;
+
 }
 
 
