@@ -16,8 +16,8 @@ Renders a menu for the given menu ID.
         <ul>
             {{ range . }}
             {{- $isExt := strings.HasPrefix .URL "http" }}
-            {{- $isCurrPage := $page.IsMenuCurrent $menuID . }}
-            <li><a href="{{ .URL }}" {{ if $isCurrPage }}class="active" {{ end }} {{ if $isExt }}target="_blank"
+            {{- $isActive := or ($page.IsMenuCurrent $menuID .) ($page.IsDescendant (site.GetPage .URL)) }}
+            <li><a href="{{ .URL }}" {{ if $isActive }}class="active" {{ end }} {{ if $isExt }}target="_blank"
                     class="top-link" {{ end }}>
                     {{- .Name -}}
                     {{- if $isExt }}<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"

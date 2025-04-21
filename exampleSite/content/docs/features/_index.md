@@ -1,5 +1,6 @@
 ---
 title: Features
+lastmod: 2025-04-21T08:04:15-06:00
 ---
 
 ## Light/Dark theme
