@@ -26,7 +26,10 @@ if (inputBox !== null) {
         inputBox.value = searchQuery || "";
         executeSearch(searchQuery, false);
     } else {
-        document.getElementById('search-results').innerHTML = '<p class="search-results-empty">Please enter a word or phrase above, or see <a href="/tags/">all tags</a>.</p>';
+        var searchResults = document.getElementById('search-results');
+        if (searchResults !== null) {
+            searchResults.innerHTML = '<p class="search-results-empty">Please enter a word or phrase above, or see <a href="/tags/">all tags</a>.</p>';
+        }
     }
 }
 

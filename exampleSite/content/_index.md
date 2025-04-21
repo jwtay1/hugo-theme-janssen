@@ -4,7 +4,7 @@ date = 2023-01-01T08:00:00-07:00
 draft = false
 +++
 
-{{< hero image="janko-ferlic.jpg" btn1_href="/getting-started/" btn1_text="Getting Started" btn2_href="https://example.com" btn2_text="Example" >}}
+{{< hero image="janko-ferlic.jpg" btn1_href="/docs/getting-started/" btn1_text="Getting Started" btn2_href="https://example.com" btn2_text="Example" >}}
 
 # Welcome to Janssen
 
