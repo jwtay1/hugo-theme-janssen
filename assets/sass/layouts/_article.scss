@@ -7,13 +7,16 @@ main {
 .article-container {
 
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 80% 20%;
+    grid-template-rows: auto;
+    width: 100%;
+    max-width: 1100px;
     padding: 0 10px;
     grid-template-areas: 
         "breadcrumbs toc"
         "main toc";
 
-    @media only screen and (max-width: $breakpoint-sm) {
+    @media only screen and (max-width: $breakpoint-md) {
         overflow-x: hidden;
         padding: 0;
         grid-template-columns: auto;
@@ -28,6 +31,8 @@ main {
     
     grid-area: main;
     overflow-x: hidden;
+    margin-bottom: 40px;
+    align-self: flex-start;
 
 }
 
@@ -47,7 +52,7 @@ main {
     height: auto;  
     //min-width: 150px;
 
-    @media only screen and (max-width: $breakpoint-sm) {
+    @media only screen and (max-width: $breakpoint-md) {
         position: relative;
         display: block;
         border-left: 0;
@@ -67,7 +72,7 @@ main {
         text-align: left;
         color: var(--text-color);
 
-        @media only screen and (max-width: $breakpoint-sm) {
+        @media only screen and (max-width: $breakpoint-md) {
             display: block;
             border: 0;
             padding: 12px 10px;
@@ -82,7 +87,7 @@ main {
     &.unfold {
 
         >button {
-            @media only screen and (max-width: $breakpoint-sm) {
+            @media only screen and (max-width: $breakpoint-md) {
                 border-radius: 7px 7px 0 0;
                 border-bottom: 1px solid var(--secondary-color);
                 //transition: border-bottom 0.5s ease;
@@ -90,7 +95,7 @@ main {
         }
 
         +.article-toc-content {
-            @media only screen and (max-width: $breakpoint-sm) {
+            @media only screen and (max-width: $breakpoint-md) {
                 max-height: 1500px;
             }
         }
@@ -101,7 +106,7 @@ main {
     
     transition: max-height 0.5s ease-in-out;
 
-    @media only screen and (max-width: $breakpoint-sm) {
+    @media only screen and (max-width: $breakpoint-md) {
         font-size: 1rem;
         background-color: var(--toc-background-color);
         overflow: hidden;
@@ -146,7 +151,7 @@ main {
             color: var(--link-active-color);
         }
 
-        @media only screen and (max-width: $breakpoint-sm) {
+        @media only screen and (max-width: $breakpoint-md) {
             color: inherit;
 
         }

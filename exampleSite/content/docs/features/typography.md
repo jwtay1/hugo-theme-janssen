@@ -1,6 +1,7 @@
 ---
 title: Typography
 date: 2025-04-16T08:10:00-05:00
+hidetoc: true
 ---
 
 Here are typography examples.

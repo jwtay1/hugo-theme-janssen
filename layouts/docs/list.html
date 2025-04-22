@@ -9,7 +9,7 @@
     <div class="article-main">
         <h1>{{ .Title }}</h1>
 
-        {{ .Content | markdownify }}
+        {{ .Content }}
 
         {{ if isset .Params "hidePageList" }}
         <div class="card-container">
