@@ -3,8 +3,11 @@
 {{ partial "menus/section.html" (dict "section" "docs" "page" .) }}
 </div>
 <div class="article-container">
-    <div class="article-main">
+    <div class="article-breadcrumbs">
         {{ partial "breadcrumbs.html" . }}
+    </div>
+    <div class="article-main">
+        
         <h1>{{ .Title }}</h1>
       
         {{ .Content }}
@@ -15,7 +18,7 @@
         {{ $dateHuman := .Lastmod  | time.Format ":date_medium" }}
         Last updated: <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
         </p>
-    </div>
+    </div>    
     <div class="article-toc-container">
         {{- $page := . }}
         {{ if not .Params.hidetoc }}

@@ -3,8 +3,10 @@
 {{ partial "menus/section.html" (dict "section" "docs" "page" .) }}
 </div>
 <div class="article-container">
-    <div class="article-main">
+    <div class="article-breadcrumbs">
         {{ partial "breadcrumbs.html" . }}
+    </div>
+    <div class="article-main">
         <h1>{{ .Title }}</h1>
 
         {{ .Content | markdownify }}

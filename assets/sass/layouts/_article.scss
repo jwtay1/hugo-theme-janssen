@@ -6,48 +6,55 @@ main {
 
 .article-container {
 
-    display: flex;
-    justify-content: center;
-    flex-grow: 1;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
     padding: 0 10px;
-    //overflow-x: auto;
+    grid-template-areas: 
+        "breadcrumbs toc"
+        "main toc";
 
-    @media only screen and (max-width: $breakpoint-md) {
-        flex-direction: column-reverse;
+    @media only screen and (max-width: $breakpoint-sm) {
         overflow-x: hidden;
         padding: 0;
+        grid-template-columns: auto;
+        grid-template-areas: 
+            "breadcrumbs"
+            "toc"
+            "main";
     }
 }
 
 .article-main {
-    width: 80%;
-    max-width: 1000px;
+    
+    grid-area: main;
     overflow-x: hidden;
-    flex-wrap: 2;
-    margin: auto;
-    padding: 0px 10px 50px 10px;
 
-    @media only screen and (max-width: $breakpoint-sm) {
-        width: 100%;
-        
-    }
+}
+
+.article-breadcrumbs {
+    grid-area: breadcrumbs;
+    margin: 0px 10px;
 }
 
 .article-toc-container {
-    align-self: start;
+    
+    grid-area: toc;
+    align-self: flex-start;
     position: sticky;
     top: 0;
     border-left: 1px solid var(--secondary-color);
     margin-top: 10px;
-    min-width: 150px;
-    width: 20%;
+    height: auto;  
+    //min-width: 150px;
 
-    @media only screen and (max-width: $breakpoint-md) {
+    @media only screen and (max-width: $breakpoint-sm) {
         position: relative;
         display: block;
         border-left: 0;
         margin-left: auto;
         margin-right: auto;
+        min-width: 0;
+        order: -1;
         width: 95%;
     }
 }
@@ -60,7 +67,7 @@ main {
         text-align: left;
         color: var(--text-color);
 
-        @media only screen and (max-width: $breakpoint-md) {
+        @media only screen and (max-width: $breakpoint-sm) {
             display: block;
             border: 0;
             padding: 12px 10px;
@@ -68,14 +75,14 @@ main {
             background-color: var(--toc-background-color);
             border-radius: 7px;
             width: 100%;
-            margin-top: 10px;
+            //margin-top: 10px;
         }
     }
 
     &.unfold {
 
         >button {
-            @media only screen and (max-width: $breakpoint-md) {
+            @media only screen and (max-width: $breakpoint-sm) {
                 border-radius: 7px 7px 0 0;
                 border-bottom: 1px solid var(--secondary-color);
                 //transition: border-bottom 0.5s ease;
@@ -83,7 +90,7 @@ main {
         }
 
         +.article-toc-content {
-            @media only screen and (max-width: $breakpoint-md) {
+            @media only screen and (max-width: $breakpoint-sm) {
                 max-height: 1500px;
             }
         }
@@ -94,7 +101,7 @@ main {
     
     transition: max-height 0.5s ease-in-out;
 
-    @media only screen and (max-width: $breakpoint-md) {
+    @media only screen and (max-width: $breakpoint-sm) {
         font-size: 1rem;
         background-color: var(--toc-background-color);
         overflow: hidden;

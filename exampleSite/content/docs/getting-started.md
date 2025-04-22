@@ -1,6 +1,7 @@
 ---
 title: Getting started
 weight: 1
+lastmod: 2025-04-22T00:43:55-06:00
 ---
 
 ## Prerequisites
